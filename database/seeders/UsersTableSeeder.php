@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
                     'user_id' => $user->id,
                     'date_of_birth' => date('Y-m-d', rand(0500000000,1000000000)),
                     'location_id' => Location::inRandomOrder()->first()->id,
-                    'bio' => $lorem->paragraph(),
+                    'bio' => substr($lorem->paragraph(), 0, 2000),
                 )
             );
         }
