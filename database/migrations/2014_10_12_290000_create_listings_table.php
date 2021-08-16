@@ -10,17 +10,17 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description', 500);
+            $table->string('title', 150);
+            $table->string('description', 2000);
             $table->boolean('paid');
 
             // foreign keys
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('craft_id')->unsigned();
-            $table->bigInteger('location_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('craft_id')->references('id')->on('crafts');
-            $table->foreign('location_id')->references('id')->on('locations');
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->bigInteger('craft_id')->unsigned()->nullable();
+            $table->bigInteger('location_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('craft_id')->references('id')->on('crafts')->onDelete('set null');
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('set null');
             $table->timestamps();
         });
     }

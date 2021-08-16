@@ -17,15 +17,12 @@ class CreateUserProfilesTable extends Migration
 
             $table->date('date_of_birth')->nullable();
 
-            $table->bigInteger('craft_id')->unsigned()->nullable();
-            $table->foreign('craft_id')->references('id')->on('crafts');
-
             $table->bigInteger('location_id')->unsigned()->nullable();
             $table->foreign('location_id')->references('id')->on('locations');
 
             $table->string('profile_pic')->default('user.jpg');
 
-            $table->string('bio', 500)->nullable();
+            $table->string('bio', 2000)->nullable();
 
             $table->boolean('complete')->default(false);
 
