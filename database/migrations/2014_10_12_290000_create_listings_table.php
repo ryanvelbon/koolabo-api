@@ -12,7 +12,7 @@ class CreateListingsTable extends Migration
             $table->id();
             $table->string('title', 150);
             $table->string('description', 2000);
-            $table->boolean('paid');
+            $table->boolean('is_offering');
 
             // foreign keys
             $table->bigInteger('user_id')->unsigned()->nullable();

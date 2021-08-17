@@ -28,7 +28,7 @@ class ListingFactory extends Factory
             // implement and use Lorem->char() function instead
             'title' => substr($lorem->words(5),0,150),
             'description' => substr($lorem->paragraph(),0,2000), // 2000 char limit
-            'paid' => rand(0,1) == 1,
+            'is_offering' => rand(0,1) == 1,
             'user_id' => \App\Models\User::inRandomOrder()->first()->id,
             'craft_id' => \App\Models\Craft::inRandomOrder()->first()->id,
             'location_id' => \App\Models\Location::inRandomOrder()->first()->id,

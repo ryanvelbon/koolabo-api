@@ -41,4 +41,10 @@ class PasswordConfirmationTest extends TestCase
 
         $response->assertSessionHasErrors();
     }
+
+    public function test_googoo()
+    {
+        $user = User::factory()->create();
+        $this->assertTrue(true);
+    }
 }

@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
             TopicUserTableSeeder::class,
 
             ListingsTableSeeder::class,
-            ListingSkillTableSeeder::class,
-            ListingTopicTableSeeder::class,
+            // ListingSkillTableSeeder::class,
+            // ListingTopicTableSeeder::class,
         ]);
     }
 }
