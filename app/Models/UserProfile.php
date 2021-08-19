@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserProfile extends Model
 {
 	protected $fillable = [
-        'user_id', 'date_of_birth', 'craft_id', 'location_id',
+        'user_id', 'date_of_birth', 'craft_id', 'city_id',
     ];
 
     public function user()
@@ -15,9 +15,9 @@ class UserProfile extends Model
     	return $this->belongsTo('App\Models\User');
     }
 
-    public function location()
+    public function city()
     {
-        return $this->hasOne('App\Models\Location');
+        return $this->hasOne('App\Models\City');
     }
 
     public $timestamps = false;

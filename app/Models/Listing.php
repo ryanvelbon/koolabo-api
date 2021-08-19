@@ -10,7 +10,11 @@ class Listing extends Model
     use HasFactory;
     
     protected $fillable = [
-        'craft_id', 'location_id',
+        'title',
+        'description',
+        'is_offering',
+        'craft_id',
+        'city_id',
     ];
 
     public function user(){
@@ -22,9 +26,9 @@ class Listing extends Model
         return $this->hasOne('App\Models\Craft');
     }
 
-    public function location()
+    public function city()
     {
-        return $this->hasOne('App\Models\Location');
+        return $this->hasOne('App\Models\City');
     }
 
     public function topics(){

@@ -17,10 +17,10 @@ class CreateListingsTable extends Migration
             // foreign keys
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('craft_id')->unsigned()->nullable();
-            $table->bigInteger('location_id')->unsigned()->nullable();
+            $table->bigInteger('city_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('craft_id')->references('id')->on('crafts')->onDelete('set null');
-            $table->foreign('location_id')->references('id')->on('locations')->onDelete('set null');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('set null');
             $table->timestamps();
         });
     }

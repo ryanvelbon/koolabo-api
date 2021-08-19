@@ -17,8 +17,8 @@ class CreateUserProfilesTable extends Migration
 
             $table->date('date_of_birth')->nullable();
 
-            $table->bigInteger('location_id')->unsigned()->nullable();
-            $table->foreign('location_id')->references('id')->on('locations');
+            $table->bigInteger('city_id')->unsigned()->nullable();
+            $table->foreign('city_id')->references('id')->on('cities');
 
             $table->string('profile_pic')->default('user.jpg');
 

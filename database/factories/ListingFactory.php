@@ -31,7 +31,7 @@ class ListingFactory extends Factory
             'is_offering' => rand(0,1) == 1,
             'user_id' => \App\Models\User::inRandomOrder()->first()->id,
             'craft_id' => \App\Models\Craft::inRandomOrder()->first()->id,
-            'location_id' => \App\Models\Location::inRandomOrder()->first()->id,
+            'city_id' => \App\Models\City::inRandomOrder()->first()->id,
         ];
     }
 }
