@@ -9,7 +9,7 @@ use Tests\TestCase;
 use App\Models\User;
 // use App\Models\Skill;
 use App\Models\Craft;
-use App\Models\Location;
+use App\Models\City;
 use App\Models\Listing;
 
 use Exception; // for testing purposes
@@ -28,17 +28,33 @@ class ListingTest extends TestCase
             'description' => "Hey guys! I am a Berlin-based DJ who will {$this->faker->paragraph()}",
             'is_offering' => 0,
             'craft_id' => Craft::inRandomOrder()->first()->id,
-            'location_id' => Location::inRandomOrder()->first()->id
+            'city_id' => City::inRandomOrder()->first()->id
         ];
 
         $user = User::factory()->create();
         
         $response = $this->actingAs($user, 'api')
                          ->json('POST', '/api/listings', $data);
-        $response->assertStatus(200);
-        $response->assertJson(['status' => true]);
-        $response->assertJson(['message' => "Listing Created!"]);
-        $response->assertJson(['data' => $data]);
+
+        $response->assertStatus(201);
+
+        // $response->assertJson(['status' => true]);
+        // $response->assertJson(['message' => "Listing Created!"]);
+
+
+        // throw new Exception(dd($response));
+        // throw new Exception(dd($response->getAttributes()));
+
+        // $response->assertJson(['data' => $data]);
+
+        // $responseData = $response->getContent();
+
+        foreach ($data as $key => $value)
+        {
+            $this->assertEquals($responseData[$key], $value);
+        }
+
+        $this->assertEquals(3+2, 89);
 
         // assert that listing was entered into database
         $this->assertNotNull(Listing::where('title', "Some Title Lorem Ipsum")->get());
@@ -50,15 +66,15 @@ class ListingTest extends TestCase
 
         $data = [
             'title' => "Looking for an experienced Filmmaker who can make a music video for my upcoming techno single",
-            'description' => "Hey guys! I am a Berlin-based DJ who will {$this->faker->paragraph()}",
+            'description' => $this->faker->paragraph(),
             'is_offering' => 0,
             'craft_id' => Craft::inRandomOrder()->first()->id,
-            'location_id' => Location::inRandomOrder()->first()->id
+            'city_id' => City::inRandomOrder()->first()->id
         ];
 
         $response = $this->json('POST', '/api/listings', $data);
         $response->assertStatus(401);
-        $response->assertJson(['message' => "Unauthenticated"]);
+        // $response->assertJson(['message' => "Unauthenticated"]);
         // assert that it was not entered into database
     }
 
@@ -87,7 +103,7 @@ class ListingTest extends TestCase
                     'is_offering',
                     'user_id',
                     'craft_id',
-                    'location_id',
+                    'city_id',
                     'created_at',
                     'updated_at',
                 ]

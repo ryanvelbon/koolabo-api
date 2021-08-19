@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ListingController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('listings', ListingController::class)->except([
+	'create', 'edit'
+]);
+Route::get('/listings/search/{q}', [ListingController::class, 'search'])
+				->name('listings.search');
+
