@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
 
+            ReferenceTablesSeeder::class,
+
             CountriesTableSeeder::class,
             CitiesTableSeeder::class,
             

@@ -2,8 +2,9 @@
 ## Next Commit Message
 
 -m
-Country & City
-delete Location
+Project Model, Migration, Controller, Routing & Tests
+
+
 
 Don't add all files to commit
 

@@ -17,6 +17,6 @@ yarn-error.log
 /.vscode
 
 
-
+*.xlsx
 
 non-code.lnk
