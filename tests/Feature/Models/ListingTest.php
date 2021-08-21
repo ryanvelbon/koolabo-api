@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 // use App\Models\Skill;
-use App\Models\Craft;
+use App\Models\Job;
 use App\Models\City;
 use App\Models\Listing;
 
@@ -26,9 +26,8 @@ class ListingTest extends TestCase
         $data = [
             'title' => "Some Title Lorem Ipsum",
             'description' => "Hey guys! I am a Berlin-based DJ who will {$this->faker->paragraph()}",
-            'is_offering' => 0,
-            'craft_id' => Craft::inRandomOrder()->first()->id,
-            'city_id' => City::inRandomOrder()->first()->id
+            'city_id' => City::inRandomOrder()->first()->id,
+            'job_id' => City::inRandomOrder()->first()->id
         ];
 
         $user = User::factory()->create();
@@ -67,9 +66,8 @@ class ListingTest extends TestCase
         $data = [
             'title' => "Looking for an experienced Filmmaker who can make a music video for my upcoming techno single",
             'description' => $this->faker->paragraph(),
-            'is_offering' => 0,
-            'craft_id' => Craft::inRandomOrder()->first()->id,
-            'city_id' => City::inRandomOrder()->first()->id
+            'city_id' => City::inRandomOrder()->first()->id,
+            'job_id'=> Job::inRandomOrder()->first()->id
         ];
 
         $response = $this->json('POST', '/api/listings', $data);
@@ -98,12 +96,13 @@ class ListingTest extends TestCase
                 [
                     'id',
                     'title',
-                    // 'generic_title',
                     'description',
-                    'is_offering',
-                    'user_id',
-                    'craft_id',
+                    'slug',
+                    'is_active'
+                    'posted_by',
                     'city_id',
+                    'job_id',
+                    'ends_at',
                     'created_at',
                     'updated_at',
                 ]
@@ -118,7 +117,7 @@ class ListingTest extends TestCase
         $user = User::factory()->create();
 
         $listing = Listing::factory()->create([
-            'user_id' => $user->id,
+            'posted_by' => $user->id,
         ]);
 
         $response = $this->actingAs($user, 'api')->json(
@@ -141,7 +140,7 @@ class ListingTest extends TestCase
         $userB = User::factory()->create();
 
         $listing = Listing::factory()->create([
-            'user_id' => $userB->id,
+            'posted_by' => $userB->id,
         ]);
 
         $response = $this->actingAs($userA, 'api')->json(
@@ -162,7 +161,7 @@ class ListingTest extends TestCase
         $user = User::factory()->create();
 
         $listing = Listing::factory()->create([
-            'user_id' => $user->id,
+            'posted_by' => $user->id,
         ]);
 
         $response = $this->actingAs($user, 'api')->json(

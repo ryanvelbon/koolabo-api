@@ -29,6 +29,7 @@ class ListingController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'job_id' => 'required',
 
         ]);
 

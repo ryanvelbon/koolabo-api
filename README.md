@@ -2,7 +2,11 @@
 ## Next Commit Message
 
 -m
-Project Model, Migration, Controller, Routing & Tests
+Job model.
+
+-m
+Project consists of many Jobs.
+Manager of Project can create a Listing for Jobs which are vacant.
 
 
 

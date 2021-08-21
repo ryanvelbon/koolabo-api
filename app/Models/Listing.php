@@ -10,20 +10,17 @@ class Listing extends Model
     use HasFactory;
     
     protected $fillable = [
+        'slug',
         'title',
         'description',
-        'is_offering',
-        'craft_id',
+        'is_active',
+        'job_id',
         'city_id',
+        'ends_at'
     ];
 
-    public function user(){
+    public function postedBy(){
     	return $this->belongsTo('App\Models\User');
-    }
-
-    public function craft()
-    {
-        return $this->hasOne('App\Models\Craft');
     }
 
     public function city()
