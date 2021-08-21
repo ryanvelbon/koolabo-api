@@ -1,26 +1,30 @@
 
-## Next Commit Message
+## Next Commit 
+
+see Gspreadsheets
+
+No need to add all files when you commit!
+
+
+User seeder: `users` table will always be seeded with an entry username:'ryan' password 'password'
+Allowing us to set authentication in Postman.
 
 -m
 Job model.
+Scaffolding for JobTest.php
 
--m
+
+
 Project consists of many Jobs.
 Manager of Project can create a Listing for Jobs which are vacant.
 
 
 
-Don't add all files to commit
+## Postpone for now
+
+Application model
 
 
-
-
-
-
--m
-ListingController and routing
-
--m
 
 
 

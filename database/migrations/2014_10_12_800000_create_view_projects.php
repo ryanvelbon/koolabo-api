@@ -13,15 +13,33 @@ class CreateViewProjects extends Migration
      */
     public function up()
     {
+        /*
+         *   You might have your DBMS set to SQLite in your
+         *   test env. In which case, this migration will be
+         *   skipped since this file executes MySQL code.
+         *   View tables aren't really necessary for testing
+         *   anyway.
+         */
+        if( config('database.default') != 'mysql')
+            return;
+
+        // pending
+        // AS created_by_id
+        // AS create_by_username
+
         DB::statement("
             CREATE OR REPLACE VIEW view_projects
             AS
             SELECT
-                projects.title,
+                projects.id AS id,
+                projects.title AS title,
+                projects.description AS description,
                 _project_types.title AS type,
                 _project_timelines.title AS projected_timeline,
                 users.id AS manager_id,
-                users.username AS manager_username
+                users.username AS manager_username,
+                projects.planned_start_date AS start_date,
+                projects.planned_end_date AS end_date
             FROM
                 projects
                 LEFT JOIN users ON projects.manager = users.id
@@ -32,6 +50,8 @@ class CreateViewProjects extends Migration
 
     public function down()
     {
+        if( config('database.default') != 'mysql')
+            return;
         Schema::dropIfExists('view_projects');
     }
 }

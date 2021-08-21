@@ -98,7 +98,7 @@ class ListingTest extends TestCase
                     'title',
                     'description',
                     'slug',
-                    'is_active'
+                    'is_active',
                     'posted_by',
                     'city_id',
                     'job_id',

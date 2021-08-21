@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\ListingController;
 
 /*
@@ -25,8 +26,22 @@ Route::resource('projects', ProjectController::class)->except([
 	'create', 'edit'
 ]);
 
+Route::resource('jobs', JobController::class)->except([
+	'create', 'edit'
+]);
+
 Route::resource('listings', ListingController::class)->except([
 	'create', 'edit'
 ]);
 Route::get('/listings/search/{q}', [ListingController::class, 'search'])
 				->name('listings.search');
+
+
+
+Route::get('/hello', function (Request $request) {
+	return "Hello!";
+});
+
+Route::get('/postman/csrf', function (Request $request) {
+	return csrf_token();
+});

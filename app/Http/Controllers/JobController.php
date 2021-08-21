@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-use App\Models\Project;
-
-use Exception;
-
-class ProjectController extends Controller
+class JobController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // return "Can you see me?";
-        return Auth::id();
+        //
     }
 
     /**
@@ -30,25 +25,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:100',
-            'description' => 'required|min:50|max:2000'
-        ]);
-
-        $data = $request->all();
-        $data['created_by'] = Auth::id();
-        $data['manager'] = Auth::id();
-
-        return Project::create($data);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Job $job)
     {
         //
     }
@@ -57,10 +43,10 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Job $job)
     {
         //
     }
@@ -68,10 +54,10 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Job $job)
     {
         //
     }

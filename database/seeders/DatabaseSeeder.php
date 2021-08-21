@@ -24,7 +24,10 @@ class DatabaseSeeder extends Seeder
             SkillUserTableSeeder::class,
             TopicUserTableSeeder::class,
 
-            ListingsTableSeeder::class,
+            ProjectsTableSeeder::class,
+            JobsTableSeeder::class,
+            // ListingsTableSeeder::class,
+            
             // ListingSkillTableSeeder::class,
             // ListingTopicTableSeeder::class,
         ]);

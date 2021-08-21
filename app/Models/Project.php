@@ -5,18 +5,54 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
+
 class Project extends Model
 {
     use HasFactory;
 
-    // perhaps 'manager' should be excluded since this should be Auth::user by default.
     protected $fillable = [
     	'title',
     	'description',
-    	'manager', // exclude?
+        'created_by',
+    	'manager',
     	'type',
     	'projected_timeline',
     	'planned_start_date',
     	'planned_end_date'
     ];
+
+    public function manager()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function jobs()
+    {
+        // consider using a VIEW TABLE instead
+
+        return $this->hasMany('App\Models\Job');
+    }
+
+    public function getTeamAttribute()
+    {
+        // consider using a VIEW TABLE instead
+
+        $jobs = $this->jobs;
+
+        $members = array();
+
+        foreach ($jobs as $job)
+        {
+            $user = User::find($job->assigned_to);
+            array_push($members, $user);
+        }
+
+        return $members;
+    }
+
+    public function getFollowersAttribute()
+    {
+        return "-pending implementation-";
+    }
 }
