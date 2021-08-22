@@ -9,8 +9,4 @@ class Topic extends Model
 	public function users(){
 		return $this->belongsToMany('App\Models\User');
 	}
-
-	public function listings(){
-		return $this->belongsToMany('App\Models\Listing');
-	}
 }

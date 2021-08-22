@@ -4,15 +4,15 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateListingSkillTable extends Migration
+class CreateJobVacancySkillTable extends Migration
 {
     public function up()
     {
-        Schema::create('listing_skill', function (Blueprint $table) {
-            $table->bigInteger('listing_id')->unsigned();
-            $table->foreign('listing_id')
+        Schema::create('job_vacancy_skill', function (Blueprint $table) {
+            $table->bigInteger('job_vacancy_id')->unsigned();
+            $table->foreign('job_vacancy_id')
                   ->references('id')
-                  ->on('listings')
+                  ->on('job_vacancies')
                   ->onDelete('cascade');
 
             $table->bigInteger('skill_id')->unsigned();
@@ -21,12 +21,12 @@ class CreateListingSkillTable extends Migration
                   ->on('skills')
                   ->onDelete('cascade');
 
-            $table->unique(array('listing_id', 'skill_id'));
+            $table->unique(array('job_vacancy_id', 'skill_id'));
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('listing_skill');
+        Schema::dropIfExists('job_vacancy_skill');
     }
 }

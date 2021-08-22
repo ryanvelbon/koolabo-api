@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Listing extends Model
+class JobVacancy extends Model
 {
     use HasFactory;
     
@@ -19,6 +19,7 @@ class Listing extends Model
         'ends_at'
     ];
 
+    // not necessary? Can be derived from an SQL JOIN
     public function postedBy(){
     	return $this->belongsTo('App\Models\User');
     }
@@ -28,6 +29,7 @@ class Listing extends Model
         return $this->hasOne('App\Models\City');
     }
 
+    // not necessary? Can be derived from an SQL JOIN
     public function topics(){
         return $this->belongsToMany('App\Models\Topic');
     }

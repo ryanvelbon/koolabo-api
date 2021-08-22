@@ -26,7 +26,19 @@ Application model
 
 
 
+## Terminology/Taxonomy: Models
 
+Project
+	Every Project consists of a minimum of 2 jobs and 2 team members.
+	A Project should tell the public:
+
+Job
+	When a Job is unoccupied, the project manager can post a listing for the vacancy by creating a JobVacancy.
+
+JobVacancy
+	A listing for a job which is unoccupied.
+	Throughout the project, we typically assign a JobVacancy instance to a variable '$listing' rather than '$jobVacancy' e.g.:
+	$listing = JobVacancy::find($id)
 
 
 ## Installation

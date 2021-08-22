@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\JobController;
-use App\Http\Controllers\ListingController;
+use App\Http\Controllers\JobVacancyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +30,11 @@ Route::resource('jobs', JobController::class)->except([
 	'create', 'edit'
 ]);
 
-Route::resource('listings', ListingController::class)->except([
+Route::resource('job-vacancies', JobVacancyController::class)->except([
 	'create', 'edit'
 ]);
-Route::get('/listings/search/{q}', [ListingController::class, 'search'])
-				->name('listings.search');
+Route::get('/job-vacancies/search/{q}', [JobVacancyController::class, 'search'])
+				->name('job-vacancies.search');
 
 
 

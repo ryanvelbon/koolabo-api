@@ -15,6 +15,7 @@ class Job extends Model
     	'assigned_to'
     ];
 
+    // allow an unoccupied job to be listed again after the listing expires
     public function listings()
     {
     	return $this->hasMany('App\Models\JobVacancy');

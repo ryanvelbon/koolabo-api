@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Listing;
+use App\Models\JobVacancy;
 
-class ListingController extends Controller
+class JobVacancyController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a list of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return Listing::all();
+        return JobVacancy::all();
     }
 
     /**
@@ -33,7 +33,7 @@ class ListingController extends Controller
 
         ]);
 
-        return Listing::create($request->all());
+        return JobVacancy::create($request->all());
     }
 
     /**
@@ -44,7 +44,7 @@ class ListingController extends Controller
      */
     public function show($id)
     {
-        return Listing::find($id);
+        return JobVacancy::find($id);
     }
 
     /**
@@ -58,9 +58,9 @@ class ListingController extends Controller
     {
         // validate?
 
-        $listing = Listing::find($id);
-        $listing->update($request->all());
-        return $listing;
+        $vacancy = JobVacancy::find($id);
+        $vacancy->update($request->all());
+        return $vacancy;
     }
 
     /**
@@ -73,7 +73,7 @@ class ListingController extends Controller
     {
         // use middleware or just check user_id
 
-        return Listing::destroy($id);
+        return JobVacancy::destroy($id);
     }
 
     /**
@@ -84,11 +84,11 @@ class ListingController extends Controller
      */
     public function PENDINGsearch(Request $request)
     {
-        return Listing::where($request->all())->get();
+        return JobVacancy::where($request->all())->get();
     }
 
     public function search($q)
     {
-        return Listing::where('title', 'like', '%'.$q.'%')->get();
+        return JobVacancy::where('title', 'like', '%'.$q.'%')->get();
     }
 }

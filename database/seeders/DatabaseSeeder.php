@@ -26,10 +26,9 @@ class DatabaseSeeder extends Seeder
 
             ProjectsTableSeeder::class,
             JobsTableSeeder::class,
-            // ListingsTableSeeder::class,
+            JobVacanciesTableSeeder::class,
             
-            // ListingSkillTableSeeder::class,
-            // ListingTopicTableSeeder::class,
+            // JobVacancySkillTableSeeder::class,
         ]);
     }
 }

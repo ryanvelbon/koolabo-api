@@ -10,16 +10,16 @@ use App\Models\User;
 // use App\Models\Skill;
 use App\Models\Job;
 use App\Models\City;
-use App\Models\Listing;
+use App\Models\JobVacancy;
 
 use Exception; // for testing purposes
 
-class ListingTest extends TestCase
+class JobVacancyTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
 
-    public function test_users_can_create_listing()
+    public function test_users_can_create_job_listing()
     {
         $this->seed();
 
@@ -33,7 +33,7 @@ class ListingTest extends TestCase
         $user = User::factory()->create();
         
         $response = $this->actingAs($user, 'api')
-                         ->json('POST', '/api/listings', $data);
+                         ->json('POST', '/api/job-vacancies', $data);
 
         $response->assertStatus(201);
 
@@ -56,10 +56,10 @@ class ListingTest extends TestCase
         $this->assertEquals(3+2, 89);
 
         // assert that listing was entered into database
-        $this->assertNotNull(Listing::where('title', "Some Title Lorem Ipsum")->get());
+        $this->assertNotNull(JobVacancy::where('title', "Some Title Lorem Ipsum")->get());
     }
 
-    public function test_users_can_not_create_listing_without_authentication()
+    public function test_users_can_not_create_job_listing_without_authentication()
     {
         $this->seed();
 
@@ -70,26 +70,26 @@ class ListingTest extends TestCase
             'job_id'=> Job::inRandomOrder()->first()->id
         ];
 
-        $response = $this->json('POST', '/api/listings', $data);
+        $response = $this->json('POST', '/api/job-vacancies', $data);
         $response->assertStatus(401);
         // $response->assertJson(['message' => "Unauthenticated"]);
         // assert that it was not entered into database
     }
 
-    public function test_users_can_read_listing()
+    public function test_users_can_read_job_listing()
     {
         $this->seed();
 
-        $listing = Listing::inRandomOrder()->first();
-        $response = $this->json('GET', '/api/listings/'.$listing->id);
+        $listing = JobVacancy::inRandomOrder()->first();
+        $response = $this->json('GET', '/api/job-vacancies/'.$listing->id);
         $response->assertStatus(200);
     }
 
-    public function test_users_can_read_all_listings()
+    public function test_users_can_read_all_job_listings()
     {
         $this->seed();
 
-        $response = $this->json('GET', '/api/listings');
+        $response = $this->json('GET', '/api/job-vacancies');
         $response->assertStatus(200);
         $response->assertJsonStructure(
             [
@@ -110,19 +110,19 @@ class ListingTest extends TestCase
         );
     }
 
-    public function test_users_can_update_listing()
+    public function test_users_can_update_job_listing()
     {
         $this->seed();
 
         $user = User::factory()->create();
 
-        $listing = Listing::factory()->create([
+        $listing = JobVacancy::factory()->create([
             'posted_by' => $user->id,
         ]);
 
         $response = $this->actingAs($user, 'api')->json(
                 'PATCH',
-                '/api/listings/'.$listing->id,
+                '/api/job-vacancies/'.$listing->id,
                 [
                     'title' => "New Title"
                 ]
@@ -132,20 +132,20 @@ class ListingTest extends TestCase
         $response->assertJson(['title' => "New Title"]);
     }
 
-    public function test_users_can_not_update_listing_of_others()
+    public function test_users_can_not_update_job_listing_of_others()
     {
         $this->seed();
 
         $userA = User::factory()->create();
         $userB = User::factory()->create();
 
-        $listing = Listing::factory()->create([
+        $listing = JobVacancy::factory()->create([
             'posted_by' => $userB->id,
         ]);
 
         $response = $this->actingAs($userA, 'api')->json(
                 'PATCH',
-                '/api/listings/'.$listing->id,
+                '/api/job-vacancies/'.$listing->id,
                 [
                     'title' => "New Title"
                 ]
@@ -154,43 +154,43 @@ class ListingTest extends TestCase
         $this->assertTrue(false, "Pending: what assertions should be made here?");
     }
 
-    public function test_users_can_delete_listing()
+    public function test_users_can_delete_job_listing()
     {
         $this->seed();
 
         $user = User::factory()->create();
 
-        $listing = Listing::factory()->create([
+        $listing = JobVacancy::factory()->create([
             'posted_by' => $user->id,
         ]);
 
         $response = $this->actingAs($user, 'api')->json(
             'DELETE',
-            '/api/listings/'.$listing->id,
+            '/api/job-vacancies/'.$listing->id,
         );
 
         $response->assertStatus(200);
 
-        $this->assertTrue(Listing::find($listing->id) == null);
+        $this->assertTrue(JobVacancy::find($listing->id) == null);
     }
 
-    public function test_users_can_not_delete_listing_of_others()
+    public function test_users_can_not_delete_job_listing_of_others()
     {
         $this->seed();
         
         $user = User::factory()->create();
 
-        $listing = Listing::inRandomOrder()->first();
+        $listing = JobVacancy::inRandomOrder()->first();
 
         $response = $this->actingAs($user, 'api')->json(
             'DELETE',
-            'api/listings/'.$listing->id,
+            'api/job-vacancies/'.$listing->id,
         );
 
         $response->assertStatus(403);
         $response->assertJson(['message' => "Unauthorized action."]);
 
         // assert that the listing is still in the db
-        $this->assertNotNull(Listing::find($listing->id));
+        $this->assertNotNull(JobVacancy::find($listing->id));
     }
 }

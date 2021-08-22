@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Listing;
+use App\Models\JobVacancy;
 use App\Helpers\Lorem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ListingFactory extends Factory
+class JobVacancyFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Listing::class;
+    protected $model = JobVacancy::class;
 
     /**
      * Define the model's default state.
@@ -32,6 +32,7 @@ class ListingFactory extends Factory
 
         return [
             // implement and use Lorem->char() function instead
+            'slug' => md5(uniqid(rand(), true)),
             'title' => substr($lorem->words(5),0,150),
             'description' => substr($lorem->paragraph(),0,2000), // 2000 char limit
             'posted_by' => \App\Models\User::inRandomOrder()->first()->id,

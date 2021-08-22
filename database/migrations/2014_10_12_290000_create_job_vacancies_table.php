@@ -4,22 +4,20 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateListingsTable extends Migration
+class CreateJobVacanciesTable extends Migration
 {
     public function up()
     {
-        Schema::create('listings', function (Blueprint $table) {
+        Schema::create('job_vacancies', function (Blueprint $table) {
             $table->id();
             $table->string('title', 150);
             $table->string('description', 2000);
             $table->unsignedBigInteger('job_id');
             $table->unsignedBigInteger('posted_by')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
-            $table->string('slug', 150)->unique()
-                    ->default(md5(uniqid(rand(), true)));
+            $table->string('slug', 150)->unique();
             $table->boolean('is_active')->default(True);
-            $table->date('ends_at')
-                    ->default(date('Y-m-d', strtotime("+30 day", strtotime(now()))));
+            $table->date('ends_at');
             $table->timestamps();
             $table->dateTime('deleted_at')->nullable();
 
@@ -32,6 +30,6 @@ class CreateListingsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('listings');
+        Schema::dropIfExists('job_vacancies');
     }
 }
