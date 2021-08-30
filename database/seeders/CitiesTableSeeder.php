@@ -15,7 +15,7 @@ class CitiesTableSeeder extends Seeder
 
         if ($file) {
             while (($line = fgets($file)) !== false) {
-                $values = explode(',', $line);
+                $values = explode(',', rtrim($line));
                 DB::table('cities')->insert([
                     'slug' => $values[0],
                     'city' => $values[1],

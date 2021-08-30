@@ -7,21 +7,42 @@ use Illuminate\Support\Facades\DB;
 
 class CraftsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         DB::table('crafts')->delete();
 
-        $crafts = array('Animation', 'Video Editing', 'Music Production', 'Guitar', 'Graphic Design', 'Software Developer', 'Web Developer', 'Web Design', 'Marketing', 'SEO');
+        $file = fopen(dirname(__DIR__, 1) . "/csv/crafts.csv", "r");
 
-        foreach($crafts as $craft){
+        if ($file) {
+          
+          // skip first line (column titles)
+          fgets($file);
+
+          while(($line = fgets($file)) !== false) {
+
+            // remove trailing whitespace
+            $line = rtrim($line);        
+
+            $values = explode(';', $line);
+
+            // error_log($line);
+
+            // error_log(dd($values));
+
+            // error_log(dd($values));
+
             DB::table('crafts')->insert([
-                'title' => $craft,
+              'id' => ($values[0] == "") ? null : (int) $values[0],
+              'title' => $values[1],
+              'parent_id' => ($values[2] == "") ? null : (int) $values[2],
+              'is_root_category' => (bool) $values[3]
             ]);
+          }
+          
+          fclose($file);
+
+        } else {
+          error_log("Cannot read file...");
         }
     }
 }
