@@ -21,7 +21,7 @@ class JsonCrafts extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Export `crafts` table as a nested JSON array';
 
     /**
      * Create a new command instance.

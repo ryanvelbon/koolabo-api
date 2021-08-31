@@ -25,12 +25,6 @@ class CraftsTableSeeder extends Seeder
 
             $values = explode(';', $line);
 
-            // error_log($line);
-
-            // error_log(dd($values));
-
-            // error_log(dd($values));
-
             DB::table('crafts')->insert([
               'id' => ($values[0] == "") ? null : (int) $values[0],
               'title' => $values[1],

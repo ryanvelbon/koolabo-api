@@ -33,7 +33,11 @@ class JobVacancyController extends Controller
 
         ]);
 
-        return JobVacancy::create($request->all());
+        $data = $request->all();
+        $data['slug'] = md5(uniqid(rand(), true));
+        $data['ends_at'] = date('Y-m-d', strtotime("+30 day", strtotime(now())));
+
+        return JobVacancy::create($data);
     }
 
     /**
@@ -44,6 +48,8 @@ class JobVacancyController extends Controller
      */
     public function show($id)
     {
+        // should only be visible if active
+        
         return JobVacancy::find($id);
     }
 
