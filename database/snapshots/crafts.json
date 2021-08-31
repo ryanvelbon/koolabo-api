@@ -1,0 +1,1083 @@
+[
+    {
+        "id": 1,
+        "title": "Digital Marketing",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 19,
+                "title": "Social Media Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 20,
+                "title": "Social Media Advertising",
+                "parent_id": 1
+            },
+            {
+                "id": 21,
+                "title": "Search Engine Optimization (SEO)",
+                "parent_id": 1
+            },
+            {
+                "id": 22,
+                "title": "Local SEO",
+                "parent_id": 1
+            },
+            {
+                "id": 23,
+                "title": "Marketing Strategy",
+                "parent_id": 1
+            },
+            {
+                "id": 24,
+                "title": "Public Relations",
+                "parent_id": 1
+            },
+            {
+                "id": 25,
+                "title": "Content Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 26,
+                "title": "Video Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 27,
+                "title": "Email Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 28,
+                "title": "Web Analytics",
+                "parent_id": 1
+            },
+            {
+                "id": 29,
+                "title": "Text Message Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 30,
+                "title": "Search Engine Marketing (SEM)",
+                "parent_id": 1
+            },
+            {
+                "id": 31,
+                "title": "Display Advertising",
+                "parent_id": 1
+            },
+            {
+                "id": 32,
+                "title": "E-Commerce Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 33,
+                "title": "Influencer Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 34,
+                "title": "Community Management",
+                "parent_id": 1
+            },
+            {
+                "id": 35,
+                "title": "Mobile App Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 36,
+                "title": "Music Promotion",
+                "parent_id": 1
+            },
+            {
+                "id": 37,
+                "title": "Book & eBook Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 38,
+                "title": "Affiliate Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 39,
+                "title": "Podcast Marketing",
+                "parent_id": 1
+            },
+            {
+                "id": 40,
+                "title": "Crowdfunding",
+                "parent_id": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Writing & Translation",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 41,
+                "title": "Articles & Blog Posts",
+                "parent_id": 2
+            },
+            {
+                "id": 42,
+                "title": "Translation",
+                "parent_id": 2
+            },
+            {
+                "id": 43,
+                "title": "Proofreading & Editing",
+                "parent_id": 2
+            },
+            {
+                "id": 44,
+                "title": "Resume Writing",
+                "parent_id": 2
+            },
+            {
+                "id": 45,
+                "title": "Cover Letters",
+                "parent_id": 2
+            },
+            {
+                "id": 46,
+                "title": "LinkedIn Profiles",
+                "parent_id": 2
+            },
+            {
+                "id": 47,
+                "title": "Ad Copy",
+                "parent_id": 2
+            },
+            {
+                "id": 48,
+                "title": "Sales Copy",
+                "parent_id": 2
+            },
+            {
+                "id": 49,
+                "title": "Social Media Copy",
+                "parent_id": 2
+            },
+            {
+                "id": 50,
+                "title": "Email Copy",
+                "parent_id": 2
+            },
+            {
+                "id": 51,
+                "title": "Case Studies",
+                "parent_id": 2
+            },
+            {
+                "id": 52,
+                "title": "Book & eBook Writing",
+                "parent_id": 2
+            },
+            {
+                "id": 53,
+                "title": "Book Editing",
+                "parent_id": 2
+            },
+            {
+                "id": 54,
+                "title": "Scriptwriting",
+                "parent_id": 2
+            },
+            {
+                "id": 55,
+                "title": "Podcast Writing",
+                "parent_id": 2
+            },
+            {
+                "id": 56,
+                "title": "Beta Reading",
+                "parent_id": 2
+            },
+            {
+                "id": 57,
+                "title": "Creative Writing",
+                "parent_id": 2
+            },
+            {
+                "id": 58,
+                "title": "Brand Voice & Tone",
+                "parent_id": 2
+            },
+            {
+                "id": 59,
+                "title": "UX Writing",
+                "parent_id": 2
+            },
+            {
+                "id": 60,
+                "title": "Speechwriting",
+                "parent_id": 2
+            },
+            {
+                "id": 61,
+                "title": "eLearning Content Development",
+                "parent_id": 2
+            },
+            {
+                "id": 62,
+                "title": "Technical Writing",
+                "parent_id": 2
+            },
+            {
+                "id": 63,
+                "title": "Job Descriptions",
+                "parent_id": 2
+            },
+            {
+                "id": 64,
+                "title": "White Papers",
+                "parent_id": 2
+            },
+            {
+                "id": 65,
+                "title": "Website Content",
+                "parent_id": 2
+            },
+            {
+                "id": 66,
+                "title": "Product Descriptions",
+                "parent_id": 2
+            },
+            {
+                "id": 67,
+                "title": "Press Releases",
+                "parent_id": 2
+            },
+            {
+                "id": 68,
+                "title": "Business Names & Slogans",
+                "parent_id": 2
+            },
+            {
+                "id": 69,
+                "title": "Legal Writing",
+                "parent_id": 2
+            },
+            {
+                "id": 70,
+                "title": "Grant Writing",
+                "parent_id": 2
+            },
+            {
+                "id": 71,
+                "title": "Transcripts",
+                "parent_id": 2
+            },
+            {
+                "id": 72,
+                "title": "Research & Summaries",
+                "parent_id": 2
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Video & Animation",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 73,
+                "title": "Whiteboard & Animated Explainers",
+                "parent_id": 3
+            },
+            {
+                "id": 74,
+                "title": "Video Editing",
+                "parent_id": 3
+            },
+            {
+                "id": 75,
+                "title": "Visual Effects",
+                "parent_id": 3
+            },
+            {
+                "id": 76,
+                "title": "Subtitles & Captions",
+                "parent_id": 3
+            },
+            {
+                "id": 77,
+                "title": "Lyric & Music Videos",
+                "parent_id": 3
+            },
+            {
+                "id": 78,
+                "title": "Character Animation",
+                "parent_id": 3
+            },
+            {
+                "id": 79,
+                "title": "Logo Animation",
+                "parent_id": 3
+            },
+            {
+                "id": 80,
+                "title": "Animation for Kids",
+                "parent_id": 3
+            },
+            {
+                "id": 81,
+                "title": "Lottie & Website Animation",
+                "parent_id": 3
+            },
+            {
+                "id": 82,
+                "title": "Animated GIFs",
+                "parent_id": 3
+            },
+            {
+                "id": 83,
+                "title": "Short Video Ads",
+                "parent_id": 3
+            },
+            {
+                "id": 84,
+                "title": "Corporate Videos",
+                "parent_id": 3
+            },
+            {
+                "id": 85,
+                "title": "3D Product Animation",
+                "parent_id": 3
+            },
+            {
+                "id": 86,
+                "title": "E-Commerce Product Videos",
+                "parent_id": 3
+            },
+            {
+                "id": 87,
+                "title": "Spokesperson Videos",
+                "parent_id": 3
+            },
+            {
+                "id": 88,
+                "title": "Live Action Explainers",
+                "parent_id": 3
+            },
+            {
+                "id": 89,
+                "title": "Crowdfunding Videos",
+                "parent_id": 3
+            },
+            {
+                "id": 90,
+                "title": "Unboxing Videos",
+                "parent_id": 3
+            },
+            {
+                "id": 91,
+                "title": "App & Website Previews",
+                "parent_id": 3
+            },
+            {
+                "id": 92,
+                "title": "Animation for Streamers",
+                "parent_id": 3
+            },
+            {
+                "id": 93,
+                "title": "Intros & Outros",
+                "parent_id": 3
+            },
+            {
+                "id": 94,
+                "title": "Screencasting Videos",
+                "parent_id": 3
+            },
+            {
+                "id": 95,
+                "title": "Product Photography",
+                "parent_id": 3
+            },
+            {
+                "id": 96,
+                "title": "Local Photography",
+                "parent_id": 3
+            },
+            {
+                "id": 97,
+                "title": "Drone Videography",
+                "parent_id": 3
+            },
+            {
+                "id": 98,
+                "title": "eLearning Video Production",
+                "parent_id": 3
+            },
+            {
+                "id": 99,
+                "title": "Slideshow Videos",
+                "parent_id": 3
+            },
+            {
+                "id": 100,
+                "title": "Game Trailers",
+                "parent_id": 3
+            },
+            {
+                "id": 101,
+                "title": "Book Trailers",
+                "parent_id": 3
+            },
+            {
+                "id": 102,
+                "title": "Article to Video",
+                "parent_id": 3
+            },
+            {
+                "id": 103,
+                "title": "Real Estate Promos",
+                "parent_id": 3
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Music & Audio",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 104,
+                "title": "Voice Over",
+                "parent_id": 4
+            },
+            {
+                "id": 105,
+                "title": "Producers & Composers",
+                "parent_id": 4
+            },
+            {
+                "id": 106,
+                "title": "Singers & Vocalists",
+                "parent_id": 4
+            },
+            {
+                "id": 107,
+                "title": "Mixing & Mastering",
+                "parent_id": 4
+            },
+            {
+                "id": 108,
+                "title": "Session Musicians",
+                "parent_id": 4
+            },
+            {
+                "id": 109,
+                "title": "Online Music Lessons",
+                "parent_id": 4
+            },
+            {
+                "id": 110,
+                "title": "Podcast Editing",
+                "parent_id": 4
+            },
+            {
+                "id": 111,
+                "title": "Songwriters",
+                "parent_id": 4
+            },
+            {
+                "id": 112,
+                "title": "Beat Making",
+                "parent_id": 4
+            },
+            {
+                "id": 113,
+                "title": "Audiobook Production",
+                "parent_id": 4
+            },
+            {
+                "id": 114,
+                "title": "Audio Ads Production",
+                "parent_id": 4
+            },
+            {
+                "id": 115,
+                "title": "Sound Design",
+                "parent_id": 4
+            },
+            {
+                "id": 116,
+                "title": "Jingles & Intros",
+                "parent_id": 4
+            },
+            {
+                "id": 117,
+                "title": "Dialogue Editing",
+                "parent_id": 4
+            },
+            {
+                "id": 118,
+                "title": "Music Transcription",
+                "parent_id": 4
+            },
+            {
+                "id": 119,
+                "title": "Vocal Tuning",
+                "parent_id": 4
+            },
+            {
+                "id": 120,
+                "title": "DJ Drops & Tags",
+                "parent_id": 4
+            },
+            {
+                "id": 121,
+                "title": "DJ Mixing",
+                "parent_id": 4
+            },
+            {
+                "id": 122,
+                "title": "Remixing & Mashups",
+                "parent_id": 4
+            },
+            {
+                "id": 123,
+                "title": "Synth Presets",
+                "parent_id": 4
+            },
+            {
+                "id": 124,
+                "title": "Meditation Music",
+                "parent_id": 4
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Programming & Tech",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 125,
+                "title": "WordPress",
+                "parent_id": 5
+            },
+            {
+                "id": 126,
+                "title": "Website Builders & CMS",
+                "parent_id": 5
+            },
+            {
+                "id": 127,
+                "title": "Game Development",
+                "parent_id": 5
+            },
+            {
+                "id": 128,
+                "title": "Development for Streamers",
+                "parent_id": 5
+            },
+            {
+                "id": 129,
+                "title": "Web Programming",
+                "parent_id": 5
+            },
+            {
+                "id": 130,
+                "title": "E-Commerce Development",
+                "parent_id": 5
+            },
+            {
+                "id": 131,
+                "title": "Mobile Apps",
+                "parent_id": 5
+            },
+            {
+                "id": 132,
+                "title": "Desktop Applications",
+                "parent_id": 5
+            },
+            {
+                "id": 133,
+                "title": "Support & IT",
+                "parent_id": 5
+            },
+            {
+                "id": 134,
+                "title": "Chatbots",
+                "parent_id": 5
+            },
+            {
+                "id": 135,
+                "title": "Cybersecurity & Data Protection",
+                "parent_id": 5
+            },
+            {
+                "id": 136,
+                "title": "Convert Files",
+                "parent_id": 5
+            },
+            {
+                "id": 137,
+                "title": "User Testing",
+                "parent_id": 5
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Data",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 138,
+                "title": "Databases",
+                "parent_id": 6
+            },
+            {
+                "id": 139,
+                "title": "Data Processing",
+                "parent_id": 6
+            },
+            {
+                "id": 140,
+                "title": "Data Analytics",
+                "parent_id": 6
+            },
+            {
+                "id": 141,
+                "title": "Data Visualization",
+                "parent_id": 6
+            },
+            {
+                "id": 142,
+                "title": "Data Engineering",
+                "parent_id": 6
+            },
+            {
+                "id": 143,
+                "title": "Data Science",
+                "parent_id": 6
+            },
+            {
+                "id": 144,
+                "title": "Data Entry",
+                "parent_id": 6
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Business",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 145,
+                "title": "Virtual Assistant",
+                "parent_id": 7
+            },
+            {
+                "id": 146,
+                "title": "Market Research",
+                "parent_id": 7
+            },
+            {
+                "id": 147,
+                "title": "Sales",
+                "parent_id": 7
+            },
+            {
+                "id": 148,
+                "title": "E-Commerce Management",
+                "parent_id": 7
+            },
+            {
+                "id": 149,
+                "title": "Supply Chain Management",
+                "parent_id": 7
+            },
+            {
+                "id": 150,
+                "title": "Project Management",
+                "parent_id": 7
+            },
+            {
+                "id": 151,
+                "title": "Presentations",
+                "parent_id": 7
+            },
+            {
+                "id": 152,
+                "title": "Game Concept Design",
+                "parent_id": 7
+            },
+            {
+                "id": 153,
+                "title": "Flyer Distribution",
+                "parent_id": 7
+            },
+            {
+                "id": 154,
+                "title": "Business Plans",
+                "parent_id": 7
+            },
+            {
+                "id": 155,
+                "title": "Business Consulting",
+                "parent_id": 7
+            },
+            {
+                "id": 156,
+                "title": "Legal Consulting",
+                "parent_id": 7
+            },
+            {
+                "id": 157,
+                "title": "Financial Consulting",
+                "parent_id": 7
+            },
+            {
+                "id": 158,
+                "title": "Customer Care",
+                "parent_id": 7
+            },
+            {
+                "id": 159,
+                "title": "HR Consulting",
+                "parent_id": 7
+            },
+            {
+                "id": 160,
+                "title": "Career Counseling",
+                "parent_id": 7
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Graphics & Design",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 9,
+                "title": "Logo & Brand Identity",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 161,
+                        "title": "Logo Design",
+                        "parent_id": 9
+                    },
+                    {
+                        "id": 162,
+                        "title": "Brand Style Guides",
+                        "parent_id": 9
+                    },
+                    {
+                        "id": 163,
+                        "title": "Business Cards & Stationery",
+                        "parent_id": 9
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "title": "Gaming",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 164,
+                        "title": "Game Art",
+                        "parent_id": 10
+                    },
+                    {
+                        "id": 165,
+                        "title": "Graphics for Streamers",
+                        "parent_id": 10
+                    },
+                    {
+                        "id": 166,
+                        "title": "Twitch Store",
+                        "parent_id": 10
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "title": "Art & Illustration",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 167,
+                        "title": "Illustration",
+                        "parent_id": 11
+                    },
+                    {
+                        "id": 168,
+                        "title": "Pattern Design",
+                        "parent_id": 11
+                    },
+                    {
+                        "id": 169,
+                        "title": "Portraits & Caricatures",
+                        "parent_id": 11
+                    },
+                    {
+                        "id": 170,
+                        "title": "Cartoons & Comics",
+                        "parent_id": 11
+                    },
+                    {
+                        "id": 171,
+                        "title": "Tattoo Design",
+                        "parent_id": 11
+                    },
+                    {
+                        "id": 172,
+                        "title": "Storyboards",
+                        "parent_id": 11
+                    }
+                ]
+            },
+            {
+                "id": 12,
+                "title": "Web & App Design",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 173,
+                        "title": "Website Design",
+                        "parent_id": 12
+                    },
+                    {
+                        "id": 174,
+                        "title": "App Design",
+                        "parent_id": 12
+                    },
+                    {
+                        "id": 175,
+                        "title": "UX Design",
+                        "parent_id": 12
+                    },
+                    {
+                        "id": 176,
+                        "title": "Landing Page Design",
+                        "parent_id": 12
+                    },
+                    {
+                        "id": 177,
+                        "title": "Email Design",
+                        "parent_id": 12
+                    },
+                    {
+                        "id": 178,
+                        "title": "Icon Design",
+                        "parent_id": 12
+                    },
+                    {
+                        "id": 179,
+                        "title": "Web Banners",
+                        "parent_id": 12
+                    }
+                ]
+            },
+            {
+                "id": 13,
+                "title": "Social Media",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 180,
+                        "title": "Social Media Design",
+                        "parent_id": 13
+                    },
+                    {
+                        "id": 181,
+                        "title": "AR Filters & Lenses",
+                        "parent_id": 13
+                    }
+                ]
+            },
+            {
+                "id": 14,
+                "title": "Packaging & Labels",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 182,
+                        "title": "Packaging Design",
+                        "parent_id": 14
+                    },
+                    {
+                        "id": 183,
+                        "title": "Book Design",
+                        "parent_id": 14
+                    },
+                    {
+                        "id": 184,
+                        "title": "Album Cover Design",
+                        "parent_id": 14
+                    },
+                    {
+                        "id": 185,
+                        "title": "Podcast Cover Art",
+                        "parent_id": 14
+                    },
+                    {
+                        "id": 186,
+                        "title": "Car Wraps",
+                        "parent_id": 14
+                    }
+                ]
+            },
+            {
+                "id": 15,
+                "title": "Visual Design",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 187,
+                        "title": "Photoshop Editing",
+                        "parent_id": 15
+                    },
+                    {
+                        "id": 188,
+                        "title": "Presentation Design",
+                        "parent_id": 15
+                    },
+                    {
+                        "id": 189,
+                        "title": "Infographic Design",
+                        "parent_id": 15
+                    },
+                    {
+                        "id": 190,
+                        "title": "Vector Tracing",
+                        "parent_id": 15
+                    },
+                    {
+                        "id": 191,
+                        "title": "Resume Design",
+                        "parent_id": 15
+                    },
+                    {
+                        "id": 192,
+                        "title": "Architecture & Building Design",
+                        "parent_id": 15
+                    },
+                    {
+                        "id": 193,
+                        "title": "Architecture & Interior Design",
+                        "parent_id": 15
+                    },
+                    {
+                        "id": 194,
+                        "title": "Landscape Design",
+                        "parent_id": 15
+                    },
+                    {
+                        "id": 195,
+                        "title": "Building Information Modeling",
+                        "parent_id": 15
+                    }
+                ]
+            },
+            {
+                "id": 16,
+                "title": "Fashion & Merchandise",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 196,
+                        "title": "Fashion Design",
+                        "parent_id": 16
+                    },
+                    {
+                        "id": 197,
+                        "title": "T-Shirts & Merchandise",
+                        "parent_id": 16
+                    },
+                    {
+                        "id": 198,
+                        "title": "Jewelry Design",
+                        "parent_id": 16
+                    }
+                ]
+            },
+            {
+                "id": 17,
+                "title": "Print Design",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 199,
+                        "title": "Flyer Design",
+                        "parent_id": 17
+                    },
+                    {
+                        "id": 200,
+                        "title": "Brochure Design",
+                        "parent_id": 17
+                    },
+                    {
+                        "id": 201,
+                        "title": "Signage Design",
+                        "parent_id": 17
+                    },
+                    {
+                        "id": 202,
+                        "title": "Poster Design",
+                        "parent_id": 17
+                    },
+                    {
+                        "id": 203,
+                        "title": "Catalog Design",
+                        "parent_id": 17
+                    },
+                    {
+                        "id": 204,
+                        "title": "Menu Design",
+                        "parent_id": 17
+                    },
+                    {
+                        "id": 205,
+                        "title": "Postcard Design",
+                        "parent_id": 17
+                    },
+                    {
+                        "id": 206,
+                        "title": "Invitation Design",
+                        "parent_id": 17
+                    }
+                ]
+            },
+            {
+                "id": 18,
+                "title": "Product & Characters Design",
+                "parent_id": 8,
+                "children": [
+                    {
+                        "id": 207,
+                        "title": "Industrial & Product Design",
+                        "parent_id": 18
+                    },
+                    {
+                        "id": 208,
+                        "title": "Character Modeling",
+                        "parent_id": 18
+                    },
+                    {
+                        "id": 209,
+                        "title": "Trade Booth Design",
+                        "parent_id": 18
+                    }
+                ]
+            }
+        ]
+    }
+]

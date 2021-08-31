@@ -61,3 +61,24 @@ function random_id_pairs($x_objects, $y_objects){
 
 	return $result;
 }
+
+/*
+ *   https://laracasts.com/discuss/channels/eloquent/hierarchical-database-table
+ *
+ */
+function buildTree(array $elements, $parentId = 0) {
+    $branch = array();
+    
+    foreach ($elements as $element) {
+        if ($element['parent_id'] == $parentId) {
+            $children = buildTree($elements, $element['id']);
+
+            if ($children) {
+                $element['children'] = $children;
+            }
+        
+            $branch[] = $element;
+        }
+    }
+    return $branch;
+}
