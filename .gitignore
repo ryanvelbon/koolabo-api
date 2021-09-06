@@ -16,7 +16,6 @@ yarn-error.log
 /.idea
 /.vscode
 
-
+# Custom Specifications
 *.xlsx
-
-non-code.lnk
+/_ignore

@@ -16,8 +16,15 @@ Job
 
 JobVacancy
 	A listing for a job which is unoccupied.
-	Throughout the project, we typically assign a JobVacancy instance to a variable '$listing' rather than '$jobVacancy' e.g.:
+	For mere convenience and consistency, throughout the project we typically assign a JobVacancy instance to a variable '$listing' rather than '$jobVacancy' e.g.:
 	$listing = JobVacancy::find($id)
+
+# Eloquent
+
+## get 5 users without sensitive data
+`User::all()->take(5)->toArray()`
+
+
 
 
 # Installation
@@ -69,60 +76,3 @@ $ vendor\bin\phpunit --filter 'Tests\\Feature\\ListingTest::test_users_can_creat
 
 
 
-# Developer's Journal
-What I Learnt While Working On This Project
-
-## Tech
-
-### Laravel
-
-#### Seeders & Factories
-
-#### Autoloading
-Autoloading helper functions in composer.json
-
-#### API Resource Controller
-php artisan make:controller ListingController -r --api
-
-#### Passport
-
-#### Artisan Commands
-Generating custom commands.
-
-#### Creating Files & Directories
-See App/Console/Commands/JsonCrafts.php for example
-
-### Laragon
-
-### HeidiSQL
-
-### MySQL Shell
-
-### TDD
-
-Writing up tests before implementing features
-
-### Databases
-How to build a hierarchical category table. `crafts` table.
-
-### API
-
-Building a Laravel API
-
-APIs typically use tokens to authenticate users and do not maintain session state between requests.
-
-### Postman
-
-Creating and exporting a Postman Collection
-
-### Webscraping
-
-Webscraping nomadlist.com; see ws-nomadlist.py
-
-## Non-Tech
-
-### Working With a Deadline
-How to work with a 4-week deadline
-
-### Research > Coding
-Less coding, more researching
