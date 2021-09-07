@@ -163,4 +163,43 @@ class ProjectTest extends TestCase
 
         $this->assertEquals($managerId, $userB->id);
     }
+
+    /*
+     *   An invitation to simply join the project (no job assigned yet).
+     *//*
+    public function test_project_manager_can_invite_user_to_join_project()
+    {
+        $this->assertTrue(False);
+    }
+
+    public function test_project_manager_can_cancel_invitation()
+    {
+        $this->assertTrue(False);
+    }
+
+    public function test_user_can_leave_project_unless_is_project_manager()
+    {
+        $this->assertTrue(False);
+    }
+
+    public function test_user_can_request_to_join_project()
+    {
+        $this->assertTrue(False);
+    }
+
+    public function test_user_can_cancel_request()
+    {
+        $this->assertTrue(False);
+    }
+
+    public function test_project_manager_can_decline_user_request_to_join_project()
+    {
+        $this->assertTrue(False);
+    }
+
+    public function test_project_manager_can_accept_user_request_to_join_project()
+    {
+        $this->assertTrue(False);        
+    }
+    */
 }

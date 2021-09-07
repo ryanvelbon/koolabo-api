@@ -29,9 +29,15 @@ Route::get('/projects/search/{name}', [ProjectController::class, 'search']);
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
+    // projects
     Route::post('/projects', [ProjectController::class, 'store']);
     Route::put('/projects/{id}', [ProjectController::class, 'update']);
     Route::delete('/projects/{id}', [ProjectController::class, 'destroy']);
+    // jobs
+    Route::post('/jobs', [JobController::class, 'store']);
+    Route::put('/jobs/{id}', [JobController::class, 'update']);
+    Route::delete('/jobs/{id}', [JobController::class, 'destroy']);
+
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 

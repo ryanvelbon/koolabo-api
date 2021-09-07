@@ -14,7 +14,7 @@ use App\Models\JobVacancy;
 
 use Exception; // for testing purposes
 
-class JobVacancyTest extends TestCase
+class JobVacancyTest // extends TestCase ---- temporarily commented out
 {
     use RefreshDatabase;
     use WithFaker;

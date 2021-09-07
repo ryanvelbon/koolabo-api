@@ -64,7 +64,7 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
 
-        Gate::authorize('update-project', $project);
+        Gate::authorize('isManager', $project);
 
         $project->update($request->all());
         return $project;
@@ -78,7 +78,7 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        Gate::authorize('delete-project', Project::find($id));
+        Gate::authorize('isManager', Project::find($id));
 
         return Project::destroy($id);
     }

@@ -29,14 +29,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('update-project', function (User $user, Project $project) {
+        Gate::define('isManager', function (User $user, Project $project) {
             return $user->id == $project->manager
                         ? Response::allow()
-                        : Response::deny('You must be Project Manager.');
-        });
-
-        Gate::define('delete-project', function (User $user, Project $project) {
-            return $user->id == $project->manager;
+                        : Response::deny('You must be Project Manager to perform this action.');
         });
     }
 }
