@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 use App\Models\Project;
 
@@ -62,6 +63,9 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         $project = Project::find($id);
+
+        Gate::authorize('update-project', $project);
+
         $project->update($request->all());
         return $project;
     }
@@ -74,6 +78,8 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize('delete-project', Project::find($id));
+
         return Project::destroy($id);
     }
 

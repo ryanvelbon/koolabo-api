@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Auth\Access\Response;
+
+use App\Models\User;
+use App\Models\Project;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +29,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('update-project', function (User $user, Project $project) {
+            return $user->id == $project->manager
+                        ? Response::allow()
+                        : Response::deny('You must be Project Manager.');
+        });
+
+        Gate::define('delete-project', function (User $user, Project $project) {
+            return $user->id == $project->manager;
+        });
     }
 }

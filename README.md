@@ -24,7 +24,39 @@ JobVacancy
 ## get 5 users without sensitive data
 `User::all()->take(5)->toArray()`
 
+# Routes
 
+## Public Routes
+```
+POST    /api/login                  email, password
+POST    /api/register               username, email, password, password_confirmation
+
+GET     /api/projects
+GET     /api/projects/:id
+
+
+```
+
+## Protected Routes
+```
+POST    /api/logout
+
+POST    /api/projects               title, description, type
+PUT     /api/projects/:id           title, description, type
+DELETE  /api/projects/:id
+
+
+```
+
+
+
+# Postman
+
+Testing the API using Postman.
+
+For POST, PUT requests you need the header `Accept: application/json`
+
+To access protected routes you must first send a POST request to `/api/register` or `/api/login` to obtain a token. This token must then be included in the Authorization header as a Bearer token.
 
 
 # Installation
