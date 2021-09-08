@@ -3,21 +3,31 @@
 namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Config;
+
+use App\Models\Skill;
+use App\Models\User;
 
 
 class SkillUserTableSeeder extends Seeder
 {
     public function run()
     {
-        $skills = \App\Models\Skill::orderBy('id')->get();
-        $users = \App\Models\User::orderBy('id')->get();
+        $users = User::all();
+        $levels = Config::get('constants.skillLevels');
 
-        $entries = random_id_pairs($users, $skills);
+        foreach ($users as $user) {
 
-        foreach($entries as $entry){
-        	DB::table('skill_user')->insert(
-        		['user_id' => $entry[0], 'skill_id' => $entry[1]]
-        	);
-        }        
+            $skills = Skill::inRandomOrder()->limit(rand(2,8))->get();
+            
+            foreach($skills as $skill){
+                DB::table('skill_user')->insert([
+                    'user_id' => $user->id,
+                    'skill' => $skill->title,
+                    'level' => $levels[array_rand($levels)],
+                    'uuid' => md5(rand(0,999999999999999999))
+                ]);
+            }
+        }
     }
 }
