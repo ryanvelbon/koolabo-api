@@ -4,11 +4,12 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Config;
+use Faker;
 
 use App\Models\User;
 use App\Models\UserProfile;
 use App\Models\City;
-use App\Helpers\Lorem;
 
 
 class UsersTableSeeder extends Seeder
@@ -17,9 +18,11 @@ class UsersTableSeeder extends Seeder
     {
     	DB::table('users')->delete();
 
-        $lorem = new Lorem();
-
         $users = User::factory()->count(50)->create();
+
+        $faker = Faker\Factory::create();
+        $genders = Config::get('constants.genderOptions');
+        $availabilities = Config::get('constants.availabilityOptions');
 
         foreach($users as $user){
             UserProfile::create(
@@ -27,7 +30,12 @@ class UsersTableSeeder extends Seeder
                     'user_id' => $user->id,
                     'date_of_birth' => date('Y-m-d', rand(0500000000,1000000000)),
                     'city_id' => City::inRandomOrder()->first()->id,
-                    'bio' => substr($lorem->paragraph(), 0, 2000),
+                    'bio_short' => $faker->text($maxNbChars = 160),
+                    'bio_long' => $faker->text($maxNbChars = 2000),
+                    'first_name' => $faker->firstName,
+                    'last_name' => $faker->lastName,
+                    'gender' => $genders[array_rand($genders)],
+                    'availability' => $availabilities[array_rand($availabilities)],
                 )
             );
         }

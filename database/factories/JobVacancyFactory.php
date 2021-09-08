@@ -22,19 +22,13 @@ class JobVacancyFactory extends Factory
      */
     public function definition()
     {
-        /*
-         * Lorem.php helper class is not necessary
-         * Just use faker.
-         */
-        $lorem = new Lorem();
         $createdAt = date("Y-m-d H:i:s", rand(strtotime("-6 month"), strtotime("-1 min")));
         $endsAt = date('Y-m-d', strtotime("+30 day", strtotime($createdAt)));
 
         return [
-            // implement and use Lorem->char() function instead
             'slug' => md5(uniqid(rand(), true)),
-            'title' => substr($lorem->words(5),0,150),
-            'description' => substr($lorem->paragraph(),0,2000), // 2000 char limit
+            'title' => $this->faker->text($maxNbChars = 150),
+            'description' => $this->faker->text($maxNbChars = 2000),
             'posted_by' => \App\Models\User::inRandomOrder()->first()->id,
             'job_id' => \App\Models\Job::inRandomOrder()->first()->id,
             'city_id' => \App\Models\City::inRandomOrder()->first()->id,
