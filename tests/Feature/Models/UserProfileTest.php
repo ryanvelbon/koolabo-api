@@ -23,6 +23,21 @@ class UserProfileTest extends TestCase
         return $levels[array_rand($levels)];
     }
 
+    public function test_retrieve_user_skills()
+    {
+        $this->seed();
+
+        $user = User::inRandomOrder()->first();
+
+        $response = $this->json('GET', "/api/profiles/{$user->username}/skills");
+        $response->assertStatus(200);
+
+        $nSkillsInUserObject = $user->skills->count();
+        $nSkillsInResponse = sizeof(json_decode($response->getContent()));
+
+        $this->assertEquals($nSkillsInUserObject, $nSkillsInResponse);
+    }
+
     public function test_user_can_add_edit_and_delete_skills()
     {
         $this->seed();
@@ -84,5 +99,5 @@ class UserProfileTest extends TestCase
         $response = $this->json('PATCH', "/api/profile/skills/{$uuid}", $data);
         $response->assertStatus(403);
 
-    }   
+    }
 }
