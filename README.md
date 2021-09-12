@@ -85,6 +85,8 @@ $ vendor\bin\phpunit --filter 'ListingTest'
 ## Testing a Single Method
 $ vendor\bin\phpunit --filter 'Tests\\Feature\\ListingTest::test_users_can_create_listing'
 
+## Buggy Test Functions (SKIP_*)
+Some test functions have been prexised with `SKIP_` instead of `test_`. These are, for the most part, non-essential tests which need debugging.
 
 
 

@@ -9,6 +9,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\Project;
+// use App\Models\ProjectLike;
+
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
@@ -55,5 +59,20 @@ class User extends Authenticatable
     public function getSkillsAttribute(){
 
         return DB::table('skill_user')->where('user_id', $this->id)->get();
+    }
+
+    public function projectsLiked()
+    {
+        return $this->belongsToMany(Project::class, 'project_likes')->withTimestamps();
+    }
+
+    public function getNProjectsLikedAttribute()
+    {
+        return $this->projectsLiked->count();
+    }
+
+    public function projectLikes()
+    {
+        return $this->hasMany(ProjectLike::class);
     }
 }

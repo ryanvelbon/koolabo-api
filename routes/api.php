@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectLikeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobVacancyController;
 // use App\Http\Controllers\UserProfileController;
@@ -26,6 +27,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{id}', [ProjectController::class, 'show']);
+Route::get('/projects/{id}/likes', [ProjectLikeController::class, 'index']);
 Route::get('/projects/search/{name}', [ProjectController::class, 'search']);
 Route::get('/users/{id}/skills', [UserSkillController::class, 'index']);
 
@@ -40,6 +42,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/projects', [ProjectController::class, 'store']);
     Route::patch('/projects/{id}', [ProjectController::class, 'update']);
     Route::delete('/projects/{id}', [ProjectController::class, 'destroy']);
+    // project likes
+    Route::post('/projects/{id}/likes', [ProjectLikeController::class, 'store']);
+    Route::delete('/projects/{id}/likes', [ProjectLikeController::class, 'destroy']);
 
 
     // jobs

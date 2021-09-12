@@ -55,4 +55,20 @@ class Project extends Model
     {
         return "-pending implementation-";
     }
+
+    // users who like this project (upvoters?)
+    public function likers()
+    {
+        return $this->belongsToMany(User::class, 'project_likes')->withTimestamps();
+    }
+
+    /**
+     * Returns number of likes received by this project
+     * PENDING: Can be optimized.
+     * @return int
+     */
+    public function getNLikesAttribute()
+    {
+        return $this->likers->count();
+    }
 }
