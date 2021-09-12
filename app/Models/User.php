@@ -11,6 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\Project;
 // use App\Models\ProjectLike;
+use App\Models\Language;
 
 
 class User extends Authenticatable
@@ -74,5 +75,10 @@ class User extends Authenticatable
     public function projectLikes()
     {
         return $this->hasMany(ProjectLike::class);
+    }
+
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class, 'user_languages');
     }
 }

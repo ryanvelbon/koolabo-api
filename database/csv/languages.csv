@@ -1,0 +1,183 @@
+id;code;title;title_native;ranking
+1;en;English;English;1
+2;es;"Spanish, Castilian";Español;2
+3;fr;French;"français, langue française";3
+4;de;German;Deutsch;4
+5;pt;Portuguese;Português;5
+6;ar;Arabic;العربية;6
+7;it;Italian;Italiano;7
+8;zh;Chinese;中文 (Zhōngwén), 汉语, 漢語;8
+9;nl;Dutch;Nederlands;9
+10;ja;Japanese;日本語 (にほんご);10
+11;pl;Polish;"język polski, polszczyzna";11
+12;ru;Russian;русский;12
+13;tr;Turkish;Türkçe;13
+14;ko;Korean;한국어;14
+15;hi;Hindi;"हिन्दी, हिंदी";15
+16;aa;Afar;Afaraf;255
+17;af;Afrikaans;Afrikaans;100
+18;ak;Akan;Akan;255
+19;sq;Albanian;Shqip;100
+20;am;Amharic;አማርኛ;100
+21;an;Aragonese;aragonés;255
+22;hy;Armenian;Հայերեն;100
+23;as;Assamese;অসমীয়া;255
+24;av;Avaric;"авар мацӀ";255
+25;ae;Avestan;avesta;255
+26;ay;Aymara;"aymar aru";255
+27;az;Azerbaijani;"azərbaycan dili";255
+28;bm;Bambara;bamanankan;255
+29;ba;Bashkir;"башҡорт теле";255
+30;eu;Basque;"euskara, euskera";100
+31;be;Belarusian;"беларуская мова";100
+32;bn;Bengali;বাংলা;100
+33;bh;"Bihari languages";भोजपुरी;255
+34;bi;Bislama;Bislama;255
+35;bs;Bosnian;"bosanski jezik";100
+36;br;Breton;brezhoneg;255
+37;bg;Bulgarian;"български език";100
+38;my;Burmese;ဗမာစာ;100
+39;ca;Catalan;català;100
+40;ch;Chamorro;Chamoru;255
+41;ce;Chechen;"нохчийн мотт";255
+42;ny;Chichewa;"chiCheŵa, chinyanja";255
+43;cv;Chuvash;"чӑваш чӗлхи";255
+44;kw;Cornish;Kernewek;255
+45;co;Corsican;corsu;255
+46;cr;Cree;ᓀᐦᐃᔭᐍᐏᐣ;255
+47;hr;Croatian;"hrvatski jezik";100
+48;cs;Czech;čeština;100
+49;da;Danish;dansk;100
+50;dv;Divehi;ދިވެހި;255
+51;dz;Dzongkha;རྫོང་ཁ;100
+52;eo;Esperanto;Esperanto;100
+53;et;Estonian;"eesti, eesti keel";100
+54;ee;Ewe;Eʋegbe;255
+55;fo;Faroese;føroyskt;255
+56;fj;Fijian;"vosa Vakaviti";255
+57;fi;Finnish;"suomi, suomen kieli";100
+58;ff;Fulah;"Fulfulde, Pulaar, Pular";255
+59;gl;Galician;Galego;100
+60;ka;Georgian;ქართული;100
+61;el;Greek;ελληνικά;100
+62;gn;Guarani;Avañe'ẽ;255
+63;gu;Gujarati;ગુજરાતી;100
+64;ht;Haitian;"Kreyòl ayisyen";100
+65;ha;Hausa;"(Hausa) هَوُسَ";100
+66;he;Hebrew;עברית;100
+67;hz;Herero;Otjiherero;255
+68;ho;"Hiri Motu";"Hiri Motu";255
+69;hu;Hungarian;magyar;100
+70;ia;"Interlingua (International Auxiliary Language Association)";Interlingua;255
+71;id;Indonesian;"Bahasa Indonesia";100
+72;ie;"Interlingue, Occidental";"(originally:) Occidental, (after WWII:) Interlingue";255
+73;ga;Irish;Gaeilge;100
+74;ig;Igbo;"Asụsụ Igbo";255
+75;ik;Inupiaq;"Iñupiaq, Iñupiatun";255
+76;io;Ido;Ido;255
+77;is;Icelandic;Íslenska;100
+78;iu;Inuktitut;ᐃᓄᒃᑎᑐᑦ;255
+79;jv;Javanese;"ꦧꦱꦗꦮ, Basa Jawa";100
+80;kl;"Kalaallisut, Greenlandic";"kalaallisut, kalaallit oqaasii";255
+81;kn;Kannada;ಕನ್ನಡ;100
+82;kr;Kanuri;Kanuri;255
+83;ks;Kashmiri;कश्मीरी, كشميري‎;255
+84;kk;Kazakh;"қазақ тілі";100
+85;km;"Central Khmer";"ខ្មែរ, ខេមរភាសា, ភាសាខ្មែរ";255
+86;ki;"Kikuyu, Gikuyu";Gĩkũyũ;255
+87;rw;Kinyarwanda;Ikinyarwanda;100
+88;ky;"Kirghiz, Kyrgyz";"Кыргызча, Кыргыз тили";255
+89;kv;Komi;"коми кыв";255
+90;kg;Kongo;Kikongo;255
+91;ku;Kurdish;Kurdî, کوردی‎;100
+92;kj;"Kuanyama, Kwanyama";Kuanyama;255
+93;la;Latin;"latine, lingua latina";100
+94;lb;"Luxembourgish, Letzeburgesch";Lëtzebuergesch;255
+95;lg;Ganda;Luganda;255
+96;li;"Limburgan, Limburger, Limburgish";Limburgs;255
+97;ln;Lingala;Lingála;255
+98;lo;Lao;ພາສາລາວ;100
+99;lt;Lithuanian;"lietuvių kalba";100
+100;lu;Luba-Katanga;Kiluba;255
+101;lv;Latvian;"latviešu valoda";100
+102;gv;Manx;"Gaelg, Gailck";255
+103;mk;Macedonian;"македонски јазик";100
+104;mg;Malagasy;"fiteny malagasy";100
+105;ms;Malay;"Bahasa Melayu, بهاس ملايو‎";100
+106;ml;Malayalam;മലയാളം;100
+107;mt;Maltese;Malti;100
+108;mi;Maori;"te reo Māori";100
+109;mr;Marathi;मराठी;100
+110;mh;Marshallese;"Kajin M̧ajeļ";255
+111;mn;Mongolian;"Монгол хэл";100
+112;na;Nauru;"Dorerin Naoero";255
+113;nv;"Navajo, Navaho";"Diné bizaad";255
+114;nd;"North Ndebele";isiNdebele;255
+115;ne;Nepali;नेपाली;100
+116;ng;Ndonga;Owambo;255
+117;nb;"Norwegian Bokmål";"Norsk Bokmål";255
+118;nn;"Norwegian Nynorsk";"Norsk Nynorsk";255
+119;no;Norwegian;Norsk;100
+120;ii;"Sichuan Yi, Nuosu";"ꆈꌠ꒿ Nuosuhxop";255
+122;oc;Occitan;"occitan, lenga d'òc";255
+123;oj;Ojibwa;ᐊᓂᔑᓈᐯᒧᐎᓐ;255
+124;cu;"Church Slavic, Old Slavonic, Church Slavonic, Old Bulgarian, Old Church Slavonic";"ѩзыкъ словѣньскъ";255
+125;om;Oromo;"Afaan Oromoo";255
+126;or;Oriya;ଓଡ଼ିଆ;255
+127;os;"Ossetian, Ossetic";"ирон æвзаг";255
+128;pa;"Punjabi, Panjabi";ਪੰਜਾਬੀ, پنجابی‎;255
+129;pi;Pali;"पालि, पाळि";255
+130;fa;Persian;فارسی;100
+131;ps;"Pashto, Pushto";پښتو;255
+132;qu;Quechua;"Runa Simi, Kichwa";100
+133;rm;Romansh;"Rumantsch Grischun";255
+134;rn;Rundi;Ikirundi;255
+135;ro;"Romanian, Moldavian, Moldovan";Română;255
+136;sa;Sanskrit;संस्कृतम्;100
+137;sc;Sardinian;sardu;255
+138;sd;Sindhi;"सिन्धी, سنڌي، سندھی‎";100
+139;se;"Northern Sami";Davvisámegiella;255
+140;sm;Samoan;"gagana fa'a Samoa";100
+141;sg;Sango;"yângâ tî sängö";255
+142;sr;Serbian;"српски језик";100
+143;gd;"Gaelic, Scottish Gaelic";Gàidhlig;255
+144;sn;Shona;chiShona;255
+145;si;"Sinhala, Sinhalese";සිංහල;255
+146;sk;Slovak;"Slovenčina, Slovenský jazyk";100
+147;sl;Slovenian;"Slovenski jezik, Slovenščina";100
+148;so;Somali;"Soomaaliga, af Soomaali";100
+149;st;"Southern Sotho";Sesotho;255
+150;su;Sundanese;"Basa Sunda";255
+151;sw;Swahili;Kiswahili;100
+152;ss;Swati;SiSwati;255
+153;sv;Swedish;Svenska;100
+154;ta;Tamil;தமிழ்;100
+155;te;Telugu;తెలుగు;100
+156;tg;Tajik;тоҷикӣ, toçikī, تاجیکی‎;100
+157;th;Thai;ไทย;100
+158;ti;Tigrinya;ትግርኛ;255
+159;bo;Tibetan;བོད་ཡིག;100
+160;tk;Turkmen;"Türkmen, Түркмен";100
+161;tl;Tagalog;"Wikang Tagalog";255
+162;tn;Tswana;Setswana;255
+163;to;"Tonga (Tonga Islands)";"Faka Tonga";255
+164;ts;Tsonga;Xitsonga;255
+165;tt;Tatar;"татар теле, tatar tele";100
+166;tw;Twi;Twi;255
+167;ty;Tahitian;"Reo Tahiti";255
+168;ug;"Uighur, Uyghur";ئۇيغۇرچە‎, Uyghurche;255
+169;uk;Ukrainian;Українська;100
+170;ur;Urdu;اردو;100
+171;uz;Uzbek;Oʻzbek, Ўзбек, أۇزبېك‎;100
+172;ve;Venda;Tshivenḓa;255
+173;vi;Vietnamese;"Tiếng Việt";100
+174;vo;Volapük;Volapük;255
+175;wa;Walloon;Walon;255
+176;cy;Welsh;Cymraeg;100
+177;wo;Wolof;Wollof;255
+178;fy;"Western Frisian";Frysk;255
+179;xh;Xhosa;isiXhosa;100
+180;yi;Yiddish;ייִדיש;100
+181;yo;Yoruba;Yorùbá;100
+182;za;"Zhuang, Chuang";"Saɯ cueŋƅ, Saw cuengh";255
+183;zu;Zulu;isiZulu;100

@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
 
             ReferenceTablesSeeder::class,
 
+            LanguagesTableSeeder::class,
             CountriesTableSeeder::class,
             CitiesTableSeeder::class,
             

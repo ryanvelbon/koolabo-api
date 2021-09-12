@@ -10,6 +10,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobVacancyController;
 // use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserSkillController;
+use App\Http\Controllers\UserLanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,10 +57,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Route::apiResource('projects/{project}/jobs', JobController::class)->except(['index', 'show']);
 
 
-    // user profile (skills)
+    // user skills
     Route::post('/users/me/skills', [UserSkillController::class, 'store']);
     Route::patch('/users/me/skills/{id}', [UserSkillController::class, 'update']);
     Route::delete('/users/me/skills/{id}', [UserSkillController::class, 'destroy']);
+
+    // user languages
+    Route::post('/users/me/languages/{id}', [UserLanguageController::class, 'store']);
+    Route::delete('/users/me/languages/{id}', [UserLanguageController::class, 'destroy']);
 
 
 
