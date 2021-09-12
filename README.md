@@ -105,6 +105,3 @@ $ vendor\bin\phpunit --filter 'Tests\\Feature\\ListingTest::test_users_can_creat
 `User::find($id)->with('profile')->with('skills')->get() `
 
 
-
-
-

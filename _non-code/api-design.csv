@@ -1,0 +1,127 @@
+﻿Notes;;Method;Route;Controller;Action;Description;Gate;id refers to
+;;GET;/settings/account;UserAccountController;show();retrieve account details;;
+;;PATCH;/settings/account;UserAccountController;update();edit account details;;
+;;DELETE;/settings/account;UserAccountController;destroy();deactivate account;;
+;;GET;/users/{id}/profile;UserProfileController;show($id);retrieve given user's full profile (expanded with hobbies, skills, etc.);.;users.id
+;;GET;/users;UserController;index();list users (essential details for member cards);;
+;;GET;/users/{id};UserController;show($id);retrieve user (essential details only);;users.id
+;;PATCH;/users/me;UNDESIRED FUNCTIONALITY;update();edit profile;;
+;;PUT;/users/me/profile-pic;UserProfilePicController;update();change profile pic;;
+;;GET;/users/{id}/skills;UserSkillController;index($id);list a user's skills;;users.id
+;;POST;/users/me/skills/{id};UserSkillController;store($id);add a skill;;user_skills.id
+;;PATCH;/users/me/skills/{id};UserSkillController;update($id);edit a skill (level);;user_skills.id
+;;DELETE;/users/me/skills/{id};UserSkillController;destroy($id);remove a skill;;user_skills.id
+;;GET;/users/{id}/languages;UserLanguageController;index($id);list a user's languages;;users.id
+;;POST;/users/me/languages/{id};UserLanguageController;store($id);add a language;;user_languages.id
+;;PATCH;/users/me/languages/{id};UserLanguageController;update($id);edit language proficiency;;user_languages.id
+;;DELETE;/users/me/languages/{id};UserLanguageController;destroy($id);remove a language;;user_languages.id
+;;GET;/users/{id}/hobbies;UserHobbyController;index($id);list a user's hobbies;;users.id
+;;POST;/users/me/hobbies/{id};UserHobbyController;store($id);add a hobby;;user_hobbies.id
+;;DELETE;/users/me/hobbies/{id};UserHobbyController;destroy($id);remove a hobby;;user_hobbies.id
+;;;;UserSocialMediaController;;;;
+;;;;;;;;
+;;;;;;;;
+;;GET;/users/{id}/portfolios;PortfolioController;index($id);list given user's portfolios;;users.id
+;;GET;/users/{id}/portfolios/{id};PortfolioController;show($id);retrieve a portfolio;;portfolios.id
+;;POST;/users/{id}/portfolios;PortfolioController;store();create a portfolio (user can have multiple portfolios for each of his crafts);;
+;;PATCH;/users/{id}/portfolios/{id};PortfolioController;update($id);update a portfolio (description);isPortfolioOwner;portfolios.id
+;;DELETE;/users/{id}/portfolios/{id};PortfolioController;destroy($id);delete a portfolio;isPortfolioOwner;portfolios.id
+;;GET;/portfolios/{id}/items/{id};PortfolioItemController;show($id);retrieve a portfolio item;;
+;;POST;/portfolios/{id}/items;PortfolioItemController;store();create a portfolio item;;
+;;PATCH;/portfolios/{id}/items/{id};PortfolioItemController;update($id);update a portfolio item;isPortfolioItemOwner;portfolio_items.id
+;;DELETE;/portfolios/{id}/items/{id};PortfolioItemController;destroy($id);delete a portfolio item;isPortfolioItemOwner;portfolio_items.id
+;;;;;;;;
+;;GET;/user/{id}/projects;UserProjectController;index($id);list all projects that the given user is participating in;;
+Consider defining this endpoint even though it is the same as /projects/{id}/leave. Point to ProjectMemberController@leave?;;;;UserProjectController;destroy($id);leave a project;;
+;;;;;;;;
+;;GET;friendships/users/{id}/followers;FollowerController;index($id);list given user's followers;;users.id
+;;GET;friendships/users/{id}/followees;FolloweeController;index($id);list given user's followees;;users.id
+;;POST;friendships/users/{id}/follow;FollowingController;follow($id);follow a user;;users.id
+;;POST;friendships/users/{id}/unfollow;FollowingController;unfollow($id);unfollow a user;;users.id
+;;POST;friendships/users/{id}/block;FollowingController;block($id);block a user;;users.id
+;;POST;friendships/users/{id}/unblock;FollowingController;unblock($id);unblock a user;;users.id
+;;POST;friendships/users/{id}/mute;FollowingController;mute($id);mute a user;;users.id
+;;POST;friendships/users/{id}/unmute;FollowingController;unmute($id);unmute a user;;users.id
+;;POST;friendships/users/{id}/report;FollowingController;report($id);report a user;;users.id
+;;;/users/me/followers;REDUNDANT;;list current user's followers;;
+;;;/users/me/followees;REDUNDANT;;list current user's followees;;
+;;;/users/{id}/remove;UNDESIRED FUNCTIONALITY;;remove a follower;;
+;;;;UNDESIRED FUNCTIONALITY;;;;
+;;GET;/users/{id}/reviews;ReviewController;index();list given user's received reviews;;
+;;POST;/users/{id}/reviews;ReviewController;store();write a review intender for given user;?;
+;;DELETE;/users/{id}/reviews/{id};ReviewController;destroy($id);delete a review;isReviewAuthor;reviews.id
+;;GET;/photos/{id};PhotoController;show($id);retrieves a single photo;;
+;;POST;/photos;PhotoController;store();upload photo;;
+;;PATCH;/photos/{id};PhotoController;update($id);edit photo (title);isPhotoOwner;
+;;DELETE;/photos/{id};PhotoController;destroy($id);delete photo;isPhotoOwner;
+;;;;;;;;
+;;GET;/projects;ProjectController;index();list all projects;;
+;;GET;/projects/{id};ProjectController;show($id);retrieve a project;;projects.id
+;;POST;/projects;ProjectController;store();create a project;;
+;;PATCH;/projects/{id};ProjectController;update($id);edit a project;isProjectManager;projects.id
+;;DELETE;/projects/{id};ProjectController;destroy($id);delete a project;isProjectManager;projects.id
+;;GET;/projects/{id}/likes;ProjectLikeController;index();list users who like the project;;projects.id
+;;POST;/projects/{id}/likes;ProjectLikeController;store();like the project;;
+;;DELETE;/projects/{id}/likes;ProjectLikeController;destroy();unlike the project;;
+;;GET;/projects/{id}/tags;ProjectTagController;index();list project's tags;;
+;;POST;/projects/{id}/tags;ProjectTagController;store();add tag to project;isProjectManager;
+;;DELETE;/projects/{id}/tags/{id};ProjectTagController;destroy($id);remove tag from project;isProjectManager;project_tags.id
+;;GET;/projects/{id}/join-requests;ProjectJoinRequestController;index($projectId);list all requests to join given project;isProjectManager;projects.id
+;;GET;/project-join-requests/{id};ProjectJoinRequestController;show($id);retrieve request;isProjectManager;project_join_requests.id
+;;POST;/projects/{id}/join-requests;ProjectJoinRequestController;store($projectId);submit request;;projects.id
+;;PATCH;/project-join-requests/{id};ProjectJoinRequestController;update($id);approve or reject request;isProjectManager;project_join_requests.id
+;;DELETE;/project-join-requests/{id};ProjectJoinRequestController;destroy($id);withdraw request;isJoinProjectRequestSender;project_join_requests.id
+;;GET;/project-invites;ProjectJoinInviteController;index();list all invites received by current user;;
+;;GET;/project-invites/{id};ProjectJoinInviteController;show($id);retrieve invite;isProjectInvitee;project_join_invites.id
+;;POST;/projects/{id}/invites;ProjectJoinInviteController;store();create an invite;isProjectManager;projects.id
+;;PATCH;/project-invites/{id};ProjectJoinInviteController;update($id);accept or decline invite;;project_join_invites.id
+;;DELETE;/project-invites/{id};ProjectJoinInviteController;destroy($id);withdraw invite;isProjectManager;project_join_invites.id
+;;GET;/projects/{id}/members;ProjectMemberController;index($projectId);list members;;projects.id
+;;GET;/projects/{id}/members/{id};ProjectMemberController;show($id);retrieve member and his contributions/responsibilities;;project_members.id
+;;PATCH;/projects/{id}/members/{id};ProjectMemberController;update($id);edit member's contributions/responsibilities;isProjectManager;project_members.id
+;;DELETE;/projects/{id}/members/{id};ProjectMemberController;destroy($id);remove member from project;isProjectManager;project_members.id
+;;GET;/projects/{id}/spectators;ProjectSpectatorController;index();;;
+Consider naming POST /projects/{id}/watch;;POST;/projects/{id}/spectators;ProjectSpectatorController;store();;;
+Consider naming POST /projects/{id}/unwatch;;DELETE;/projects/{id}/spectators/{id};ProjectSpectatorController;destroy($id);;;
+;;GET;/project/{id}/milestones;ProjectMilestoneController;index();list a project's milestones;.;
+;;GET;/project/{id}/milestones/{id};ProjectMilestoneController;show($id);retrieve a milestone (once achieved, author might want to write something like a blog article detailing achievements);.;
+;;POST;/project/{id}/milestones;ProjectMilestoneController;store();create a milestone;isProjectManager;
+;;PATCH;/project/{id}/milestones/{id};ProjectMilestoneController;update($id);edit a milestone (status);isProjectManager;
+;;DELETE;/project/{id}/milestones/{id};ProjectMilestoneController;destroy($id);delete a milestone;isProjectManager;
+;;;;ProjectSponsorController;;;;
+;;;;ProjectEventController;;;;
+;;;;;;;;
+;;GET;/job-vacancies;JobVacancyController;index();list job vacancies (sorted by relevance to current user);;
+;;GET;/job-vacancies/{id};JobVacancyController;show($id);retrieves a JobVacancy;;
+;;POST;/job-vacancies;JobVacancyController;store();creates a JobVacancy;isProjectManager;
+;;PATCH;/job-vacancies/{id};JobVacancyController;update($id);edits a JobVacancy;isProjectManager;
+;;DELETE;/job-vacancies/{id};JobVacancyController;destroy($id);deletes a JobVacancy;isProjectManager;
+;;GET;/job-vacancies/{id}/applications;JobApplicationController;index();list all applications for a given job;isProjectManager;
+;;GET;/job-vacancies/{id}/applications/{id};JobApplicationController;show($id);retrieve a job application;isProjectManager;
+;;POST;/job-vacancies/{id}/applications;JobApplicationController;store();submit a job application;;
+;;PATCH;/job-vacancies/{id}/applications/{id};JobApplicationController;update($id);approve, reject, or shortlist candidate;isProjectManager;
+;;DELETE;/job-vacancies/{id}/applications/{id};JobApplicationController;destroy($id);withdraw application;isJobApplicant;
+;;;;;;;;
+;;GET;/meetups;MeetupController;index();;;
+;;GET;/meetups/{id};MeetupController;show($id);;;
+;;POST;/meetups;MeetupController;store();;;
+;;PATCH;/meetups/{id};MeetupController;update($id);;isOrganizer;
+;;DELETE;/meetups/{id};MeetupController;destroy($id);;isOrganizer;
+;;;;;;;;
+;;GET;/chats/requests;ChatRequestController;index();list chats which are pending current user's approval;;
+;;PATCH;/chats/requests/{id};ChatRequestController;update($id);accept or decline request;;chats.id
+;;GET;/chats;ChatController;index();list current user's chats;;
+;;GET;/chats/{id};ChatController;show($id);retrieve chat with latest n messages;isChatParticipant;chats.id
+;;POST;/chats/{id}/messages;MessageController;store();send a message;isChatParticipant;
+;;PATCH;/chats/{id}/messages/{id};MessageController;update($id);edit a message;isChatParticipant, isMessageAuthor;messages.id
+;;DELETE;/chats/{id}/messages/{id};MessageController;destroy($id);delete a message;isChatParticipant, isMessageAuthor;messages.id
+;;POST;/chats/{id}/messages/{id}/like;MessageController;like($id);like a message;isChatParticipant;messages.id
+;;POST;/chats/{id}/messages/{id}/unlike;MessageController;unlike($id);unlike a message;isChatParticipant;messages.id
+;;POST;/chats/group-chats;GroupChatController;store();start a group chat;;
+;;PATCH;/chats/group-chats/{id};GroupChatController;update($id);edit a group chat (title, description, thumbnail);isGroupChatAdmin;chats.id
+;;POST;/chats/group-chats/{id}/leave;GroupChatController;leave();leave a group chat;isChatParticipant;
+;;GET;/chats/group-chats/{id}/participants;GroupChatParticipantController;index();list all participants of a conversation;;
+;;POST;/chats/group-chats/{id}/participants;GroupChatParticipantController;store();add participant to group chat;isGroupChat, isGroupChatAdmin;
+;;PATCH;/chats/group-chats/{id}/participants/{id};GroupChatParticipantController;update($id);edit participant's privileges;isGroupChat, isGroupChatAdmin;chat_participants.id
+;;DELETE;/chats/group-chats/{id}/participants/{id};GroupChatParticipantController;destroy($id);remove participant from group chat;isGroupChat, isGroupChatAdmin;chat_participants.id
+;;DELETE;/chats/group-chats/{id}/messages/{id};GroupChatMessageController;destroy($id);delete a message (of another user);isGroupChatAdmin;messages.id

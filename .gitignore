@@ -17,5 +17,3 @@ yarn-error.log
 /.vscode
 
 # Custom Specifications
-*.xlsx
-/_ignore
