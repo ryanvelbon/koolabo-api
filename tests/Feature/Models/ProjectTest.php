@@ -17,7 +17,7 @@ class ProjectTest extends TestCase
     use WithFaker;
 
     /*
-     *   POST & PUT requests to /api/projects should not include
+     *   POST & PATCH requests to /api/projects should not include
      *   `created_by` and `manager` fields since these fields
      *   are set by the Controller.
      */
@@ -94,7 +94,7 @@ class ProjectTest extends TestCase
 
         $data = $this->generate_dummy_form_data();
 
-        $response = $this->json('PUT', '/api/projects/'.$project->id, $data);
+        $response = $this->json('PATCH', '/api/projects/'.$project->id, $data);
 
         $response->assertStatus(200); // should it be 204 instead?
     }
@@ -113,7 +113,7 @@ class ProjectTest extends TestCase
 
         $data = ['title' => 'Here is a New Title'];
 
-        $response = $this->json('PUT', '/api/projects/'.$project->id, $data);
+        $response = $this->json('PATCH', '/api/projects/'.$project->id, $data);
 
         $response->assertStatus(403);
     }
@@ -154,7 +154,7 @@ class ProjectTest extends TestCase
         $projectId = (int) json_decode($response->content())->id;
 
         // user A updates project so that user B is now the manager
-        $response = $this->json('PUT', '/api/projects/'.$projectId, ['manager' => $userB->id]);
+        $response = $this->json('PATCH', '/api/projects/'.$projectId, ['manager' => $userB->id]);
         $response->assertStatus(200); // should it be 204 instead?
 
         $response = $this->json('GET', '/api/projects/'.$projectId);

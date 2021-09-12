@@ -77,7 +77,7 @@ class JobTest extends TestCase
             'assigned_to' => User::inRandomOrder()->first()->id
         ];
 
-        $response = $this->json('PUT', '/api/jobs/'.$job->id, $data);
+        $response = $this->json('PATCH', '/api/jobs/'.$job->id, $data);
         $response->assertStatus(200); // or 204
     }
 

@@ -27,7 +27,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{id}', [ProjectController::class, 'show']);
 Route::get('/projects/search/{name}', [ProjectController::class, 'search']);
-Route::get('/profiles/{username}/skills', [UserSkillController::class, 'index']);
+Route::get('/users/{id}/skills', [UserSkillController::class, 'index']);
+
 
 // Route::get('/recommendations/skill', []);
 // Route::get('/recommendations/city', []);
@@ -37,25 +38,25 @@ Route::get('/profiles/{username}/skills', [UserSkillController::class, 'index'])
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // projects
     Route::post('/projects', [ProjectController::class, 'store']);
-    Route::put('/projects/{id}', [ProjectController::class, 'update']);
+    Route::patch('/projects/{id}', [ProjectController::class, 'update']);
     Route::delete('/projects/{id}', [ProjectController::class, 'destroy']);
+
+
     // jobs
     Route::post('/jobs', [JobController::class, 'store']);
-    Route::put('/jobs/{id}', [JobController::class, 'update']);
+    Route::patch('/jobs/{id}', [JobController::class, 'update']);
     Route::delete('/jobs/{id}', [JobController::class, 'destroy']);
+    // ** Alternatively, you can do this:
+    // Route::apiResource('jobs', JobController::class)->except(['index', 'show']);
+    // Route::apiResource('projects/{project}/jobs', JobController::class)->except(['index', 'show']);
+
+
     // user profile (skills)
-    Route::post('/profile/skills', [UserSkillController::class, 'store']);
-    Route::patch('/profile/skills/{uuid}', [UserSkillController::class, 'update']);
-    Route::delete('/profile/skills/{uuid}', [UserSkillController::class, 'destroy']);
-    // friendships (followings)
-    Route::get('/profile/followings', [UserFolloweeController::class, 'index']);
-    Route::post('/friendships/{username}/follow', [UserFolloweeController::class, 'store']);
-    Route::post('/friendships/{username}/unfollow', [UserFolloweeController::class, 'destroy']);
-    // friendships (followers)
-    Route::get('/profile/followers', [UserFollowerController::class, 'index']);
-    Route::post('/friendships/{username}/approve', [UserFollowerController::class, 'store']);
-    Route::post('/friendships/{username}/ignore', [UserFollowerController::class, 'reject']);
-    Route::post('/friendships/{username}/remove', [UserFollowerController::class, 'destroy']);
+    Route::post('/users/me/skills', [UserSkillController::class, 'store']);
+    Route::patch('/users/me/skills/{id}', [UserSkillController::class, 'update']);
+    Route::delete('/users/me/skills/{id}', [UserSkillController::class, 'destroy']);
+
+
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });

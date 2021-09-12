@@ -29,7 +29,7 @@ class UserProfileTest extends TestCase
 
         $user = User::inRandomOrder()->first();
 
-        $response = $this->json('GET', "/api/profiles/{$user->username}/skills");
+        $response = $this->json('GET', "/api/users/{$user->id}/skills");
         $response->assertStatus(200);
 
         $nSkillsInUserObject = $user->skills->count();
@@ -57,7 +57,7 @@ class UserProfileTest extends TestCase
                 'skill' => $skill->title,
                 'level' => $this->random_level(),
             ];
-            $response = $this->json('POST', "/api/profile/skills", $data);
+            $response = $this->json('POST', "/api/users/me/skills", $data);
             $response->assertStatus(201);
         }
 
@@ -66,7 +66,7 @@ class UserProfileTest extends TestCase
 
         // user deletes one of their skills
         $uuid = $user->skills[0]->uuid;
-        $response = $this->json('DELETE', "/api/profile/skills/{$uuid}");
+        $response = $this->json('DELETE', "/api/users/me/skills/{$uuid}");
         $response->assertStatus(204);
 
         // user should now have one less skill
@@ -76,7 +76,7 @@ class UserProfileTest extends TestCase
         $uuid = $user->skills[0]->uuid;
         $updatedLevel = $this->random_level();
         $data = ['level' => $updatedLevel];
-        $response = $this->json('PATCH', "/api/profile/skills/{$uuid}", $data);
+        $response = $this->json('PATCH', "/api/users/me/skills/{$uuid}", $data);
         $response->assertStatus(204);
         $this->assertEquals(DB::table('skill_user')->where('uuid', $uuid)->first()->level, $updatedLevel);
     }
@@ -90,13 +90,13 @@ class UserProfileTest extends TestCase
 
         // user attempts to delete someone's skill
         $uuid = User::inRandomOrder()->first()->skills[0]->uuid;
-        $response = $this->json('DELETE', "/api/profile/skills/{$uuid}");
+        $response = $this->json('DELETE', "/api/users/me/skills/{$uuid}");
         $response->assertStatus(403);
 
         // user attempts to edit someone's skill
         $uuid = User::inRandomOrder()->first()->skills[0]->uuid;
         $data = ['level' => $this->random_level()];
-        $response = $this->json('PATCH', "/api/profile/skills/{$uuid}", $data);
+        $response = $this->json('PATCH', "/api/users/me/skills/{$uuid}", $data);
         $response->assertStatus(403);
 
     }

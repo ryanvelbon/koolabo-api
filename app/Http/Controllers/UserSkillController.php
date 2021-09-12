@@ -14,9 +14,9 @@ use App\Rules\SkillLevel;
 
 class UserSkillController extends Controller
 {
-    public function index($username)
+    public function index($userId)
     {
-        return User::where('username', $username)->first()->skills;
+        return User::find($userId)->skills;
     }
 
     public function store(Request $request)
