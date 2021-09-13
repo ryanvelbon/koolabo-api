@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function getSkillsAttribute(){
 
-        return DB::table('skill_user')->where('user_id', $this->id)->get();
+        return DB::table('user_skills')->where('user_id', $this->id)->get();
     }
 
     public function projectsLiked()

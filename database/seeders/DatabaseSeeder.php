@@ -9,6 +9,8 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        $time_start = microtime(true);
+
         $this->call([
 
             ReferenceTablesSeeder::class,
@@ -22,7 +24,8 @@ class DatabaseSeeder extends Seeder
             TopicsTableSeeder::class,
 
             UsersTableSeeder::class,
-            SkillUserTableSeeder::class,
+            UserLanguagesTableSeeder::class,
+            UserSkillsTableSeeder::class,
             TopicUserTableSeeder::class,
 
             ProjectsTableSeeder::class,
@@ -31,5 +34,12 @@ class DatabaseSeeder extends Seeder
             
             // JobVacancySkillTableSeeder::class,
         ]);
+
+        $time_end = microtime(true);
+
+        $execution_time = ($time_end - $time_start);
+        $t = number_format($execution_time, 2, '.', '');
+
+        printf("Success: Database Seeded in {$t}s");
     }
 }

@@ -9,7 +9,7 @@ use App\Models\Skill;
 use App\Models\User;
 
 
-class SkillUserTableSeeder extends Seeder
+class UserSkillsTableSeeder extends Seeder
 {
     public function run()
     {
@@ -21,7 +21,7 @@ class SkillUserTableSeeder extends Seeder
             $skills = Skill::inRandomOrder()->limit(rand(2,8))->get();
             
             foreach($skills as $skill){
-                DB::table('skill_user')->insert([
+                DB::table('user_skills')->insert([
                     'user_id' => $user->id,
                     'skill' => $skill->title,
                     'level' => $levels[array_rand($levels)],
