@@ -17,6 +17,7 @@ class UserSkillTest extends TestCase
     use RefreshDatabase;
     // use Faker;
 
+
     private function random_level()
     {
         $levels = Config::get('constants.skillLevels');
@@ -162,5 +163,26 @@ class UserSkillTest extends TestCase
         $response->assertStatus(200);
         // user should only have 1 skill
         $this->assertEquals($user->refresh()->skills->count(), 1);
+    }
+
+    /*
+     * Asserts that when a user sends a DELETE request to the API endpoint,
+     * only pivot table record is deleted and not the `skills` table record.
+     */
+    public function test_skill_is_deleted_only_from_pivot_table()
+    {
+        $this->seed();
+        $user = User::factory()->create();
+        $skill = Skill::inRandomOrder()->first();
+        $nSkills_preRequest_db = Skill::count();
+        $user->skills()->attach($skill->id, ['level' => 'beginner']);
+        $this->assertNotNull($user->skills->find($skill->id));
+        // user removes skill
+        Sanctum::actingAs($user, ['*']);
+        $response = $this->json('DELETE', "/api/users/me/skills/{$skill->id}");
+        $response->assertStatus(200);
+        $this->assertNull($user->refresh()->skills->find($skill->id));
+        // `skills` table should have same number of records
+        $this->assertEquals(Skill::count(), $nSkills_preRequest_db);
     }
 }
