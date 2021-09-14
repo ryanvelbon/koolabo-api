@@ -20,6 +20,8 @@ class SkillsTableSeeder extends Seeder
         foreach($skills as $skill){
             DB::table('skills')->insert([
                 'title' => $skill,
+                'status' => 'official',
+                //'created_by' => 1 // created by admin (since admin should be assigned ID 1)
             ]);
         }
     }

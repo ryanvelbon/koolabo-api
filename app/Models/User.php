@@ -57,11 +57,6 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Topic');
     }
 
-    public function getSkillsAttribute(){
-
-        return DB::table('user_skills')->where('user_id', $this->id)->get();
-    }
-
     public function projectsLiked()
     {
         return $this->belongsToMany(Project::class, 'project_likes')->withTimestamps();
@@ -80,5 +75,10 @@ class User extends Authenticatable
     public function languages()
     {
         return $this->belongsToMany(Language::class, 'user_languages');
+    }
+
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'user_skills')->withPivot('level');
     }
 }

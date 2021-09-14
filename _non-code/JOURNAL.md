@@ -36,6 +36,21 @@ https://laravel.com/docs/8.x/validation#custom-validation-rules
 
 ## Cruddy by Design
 
+## Pivot Tables
+Setting up a M:M relationshipm specifying a custom name for pivot table.
+Adding and removing M:M relationship records using attach() & detach().
+
+$user->skills
+$user->skills()->attach($id, ['level' => 'beginner'])
+$user->skills()->detach($id)
+$skill->users
+$skill->users()->attach($id, ['level' => 'advanced'])
+$skill->users()->detach($id)
+
+## HTTP Responses
+
+return response('Resource updated', 200); // client will see this message
+return response('Resource updated', 204); // client will not see this message
 
 # Laragon
 

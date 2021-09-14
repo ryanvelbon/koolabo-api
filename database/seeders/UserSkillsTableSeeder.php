@@ -23,9 +23,8 @@ class UserSkillsTableSeeder extends Seeder
             foreach($skills as $skill){
                 DB::table('user_skills')->insert([
                     'user_id' => $user->id,
-                    'skill' => $skill->title,
-                    'level' => $levels[array_rand($levels)],
-                    'uuid' => md5(rand(0,999999999999999999))
+                    'skill_id' => $skill->id,
+                    'level' => $levels[array_rand($levels)]
                 ]);
             }
         }

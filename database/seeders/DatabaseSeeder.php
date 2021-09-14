@@ -18,12 +18,25 @@ class DatabaseSeeder extends Seeder
             LanguagesTableSeeder::class,
             CountriesTableSeeder::class,
             CitiesTableSeeder::class,
+
+            /*
+             *  Users can now create entries fo the `crafts`, `skills`
+             *  and `topics` tables.
+             *
+             *  For example, when a user adds a skill that is not
+             *  in the database, the Controller will create an entry
+             *  in the `skills` table with a 'created_by' FK field
+             *  which points to that user. Hence we must seed the
+             *  `users` table before these tables.
+             */
+
+            UsersTableSeeder::class,
             
             CraftsTableSeeder::class,
             SkillsTableSeeder::class,
             TopicsTableSeeder::class,
 
-            UsersTableSeeder::class,
+            
             UserLanguagesTableSeeder::class,
             UserSkillsTableSeeder::class,
             TopicUserTableSeeder::class,
@@ -40,6 +53,6 @@ class DatabaseSeeder extends Seeder
         $execution_time = ($time_end - $time_start);
         $t = number_format($execution_time, 2, '.', '');
 
-        printf("Success: Database Seeded in {$t}s");
+        // printf("Success: Database Seeded in {$t}s");
     }
 }

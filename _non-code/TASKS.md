@@ -50,3 +50,9 @@ Use rtrim() on each line to remove trailing whitespace
 ## AuthServiceProvider.php
 Our Tests seem to fail the triple equals assertion. Hence we are using double equals instead.
 `$user->id === $project->manager` instead of `$user->id == $project->manager`
+
+# Optimization
+Consider working with a powerful PC when testing app using large dummy data (e.g., 100,000 users)
+
+## Seeders
+

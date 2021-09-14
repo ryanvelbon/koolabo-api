@@ -10,21 +10,17 @@ class CreateUserSkillsTable extends Migration
     {
         Schema::create('user_skills', function (Blueprint $table) {
 
+            $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
-
-            $table->string('skill', 60); // instead of FK, we should allow any text
-
-            // $table->bigInteger('skill_id')->unsigned();
-            // $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade');
-
+            $table->bigInteger('skill_id')->unsigned();
             $table->string('level', 20);
-            $table->char('uuid', 32)->unique(); // md5 hash
+            $table->timestamps();
 
-            $table->unique(array('skill', 'user_id'));
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade');
+
+            $table->unique(array('skill_id', 'user_id'));
+            
         });
     }
 

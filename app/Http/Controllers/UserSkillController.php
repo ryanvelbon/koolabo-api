@@ -9,7 +9,21 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 use App\Models\User;
+use App\Models\Skill;
+use App\Models\UserSkill;
+
 use App\Rules\SkillLevel;
+
+/*
+|--------------------------------------------------------------------------
+| READ THIS before refactoring any code
+|--------------------------------------------------------------------------
+|
+| uuid field and isOwnerOfSkill gate are no longer necessary 
+| 
+| 
+|
+*/
 
 
 class UserSkillController extends Controller
@@ -19,53 +33,61 @@ class UserSkillController extends Controller
         return User::find($userId)->skills;
     }
 
+    /*
+     * Pending:
+     * Tried the following, for a case insensitive search, but didn't work:
+     * if($user->skills->where(DB::raw('lower(title)', 'like', '%' . strtolower($request['skill']) . '%'))->first())
+     *
+     */
+
     public function store(Request $request)
     {
         $request->validate([
             'skill' => ['required'],
             'level' => ['required', new SkillLevel],
         ]);
-        
+
         $user = $request->user();
-        $uuid = md5(time()."".$user->username."".rand(0,9999));
+        $skill = Skill::where('title', $request['skill'])->first();
 
-        DB::table('skill_user')->insert([
-            'skill' => $request['skill'],
-            'level' => $request['level'],
-            'user_id' => $user->id,
-            'uuid' => $uuid
-        ]);
+        // if skill is not recognized (does not exist in `skills` table), add to database
+        if(!$skill)
+            $skill = Skill::create([
+                'title' => $request['skill'],
+                'created_by' => $user->id
+            ]);
+        
+        if($user->skills->find($skill->id))
+            return response("You already have this skill", 200);
 
-        return response('Skill has been added to database', 201);
+        $user->skills()->attach($skill->id, ['level' => $request['level']]);
+
+        return response('Your skill has been registered', 201);
     }
 
-    public function update(Request $request, $uuid)
-    {
-        Gate::authorize('isOwnerOfSkill', $uuid);
 
+    public function update(Request $request, $skillId)
+    {
         $request->validate([
             'level' => ['required', new SkillLevel],
         ]);
 
-        DB::table('skill_user')
-            ->where('uuid', $uuid)
-            ->update([
-                'level' => $request['level']
-            ]);
+        $user = $request->user();
 
-        return response('Skill has been updated', 204);
+        if(!$user->skills->find($skillId))
+            return response('No such record', 404);
+
+        $user->skills()->updateExistingPivot($skillId, ['level' => $request['level']]);
+
+        return response('Your skill has been updated.', 200);
     }
 
-    public function destroy($uuid)
+
+    public function destroy(Request $request, $skillId)
     {
-        Gate::authorize('isOwnerOfSkill', $uuid);
-
-        if(DB::table('skill_user')->where('uuid', $uuid)->exists()) {
-            DB::table('skill_user')->where('uuid', $uuid)->delete();
-        } else {
+        if($request->user()->skills()->detach($skillId))
+            return response('Your skill has been removed', 200);
+        else
             return response('No such record', 404);
-        }
-
-        return response('Skill has been removed from database', 204);
     }
 }
