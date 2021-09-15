@@ -24,14 +24,14 @@ class Project extends Model
 
     public function manager()
     {
-        return $this->belongsTo('App\Models\User', 'manager_id');
+        return $this->belongsTo(User::class, 'manager_id');
     }
 
     public function jobs()
     {
         // consider using a VIEW TABLE instead
 
-        return $this->hasMany('App\Models\Job');
+        return $this->hasMany(Job::class);
     }
 
     public function getTeamAttribute()

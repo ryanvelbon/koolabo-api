@@ -53,10 +53,6 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\UserProfile');
     }
 
-    public function interests(){
-        return $this->belongsToMany('App\Models\Topic');
-    }
-
     public function projectsLiked()
     {
         return $this->belongsToMany(Project::class, 'project_likes')->withTimestamps();
@@ -72,9 +68,19 @@ class User extends Authenticatable
         return $this->hasMany(ProjectLike::class);
     }
 
+    public function topics()
+    {
+        return $this->belongsToMany(Topic::class, 'user_topics');
+    }
+
     public function languages()
     {
         return $this->belongsToMany(Language::class, 'user_languages');
+    }
+
+    public function crafts()
+    {
+        return $this->belongsToMany(Craft::class, 'user_crafts');
     }
 
     public function skills()

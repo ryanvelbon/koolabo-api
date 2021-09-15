@@ -18,11 +18,16 @@ class Job extends Model
     // allow an unoccupied job to be listed again after the listing expires
     public function listings()
     {
-    	return $this->hasMany('App\Models\JobVacancy');
+    	return $this->hasMany(JobVacancy::class);
+    }
+
+    public function craft()
+    {
+        return $this->belongsTo(Craft::class);
     }
 
     public function project()
     {
-        return $this->belongsTo('App\Models\Project');
+        return $this->belongsTo(Project::class);
     }
 }

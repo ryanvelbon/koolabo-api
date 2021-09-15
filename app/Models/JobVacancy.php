@@ -21,24 +21,24 @@ class JobVacancy extends Model
 
     public function job()
     {
-        return $this->belongsTo('App\Models\Job');
+        return $this->belongsTo(Job::class);
     }
 
     public function postedBy()
     {
-    	return $this->belongsTo('App\Models\User', 'posted_by');
+    	return $this->belongsTo(User::class, 'posted_by');
     }
 
     public function city()
     {
-        return $this->belongsTo('App\Models\City');
+        return $this->belongsTo(City::class);
     }
 
     // public function topics(){
-    //     return $this->belongsToMany('App\Models\Topic');
+    //     return $this->belongsToMany(Topic::class);
     // }
 
     public function skills(){
-        return $this->belongsToMany('App\Models\Skill');
+        return $this->belongsToMany(Skill::class);
     }
 }

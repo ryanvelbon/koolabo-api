@@ -12,12 +12,12 @@ class UserProfile extends Model
 
     public function user()
     {
-    	return $this->belongsTo('App\Models\User');
+    	return $this->belongsTo(User::class);
     }
 
     public function city()
     {
-        return $this->hasOne('App\Models\City');
+        return $this->hasOne(City::class);
     }
 
     public $timestamps = false;

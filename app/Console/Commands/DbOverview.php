@@ -40,7 +40,7 @@ class DbOverview extends Command
         // $this->goo();
         // return;
 
-        $models = ['Language', 'Skill', 'Topic', 'User', 'UserSkill', 'UserLanguage', 'Project', 'ProjectLike', 'Job', 'JobVacancy'];
+        $models = ['Language', 'Country', 'City', 'Skill', 'Topic', 'User', 'UserSkill', 'UserLanguage', 'Project', 'ProjectLike', 'Job', 'JobVacancy'];
 
         $mask = "|%-20.20s |%-8.8s |\n";
         printf($mask, 'Model', 'Count');

@@ -8,6 +8,6 @@ class City extends Model
 {
     public function jobVacancies()
     {
-        return $this->hasMany('App\Models\JobVacancy');
+        return $this->hasMany(JobVacancy::class);
     }
 }
