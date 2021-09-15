@@ -1,0 +1,758 @@
+[
+    {
+        "id": 300,
+        "title": "Apps",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 307,
+                "title": "Book",
+                "parent_id": 300
+            },
+            {
+                "id": 301,
+                "title": "Business",
+                "parent_id": 300
+            },
+            {
+                "id": 302,
+                "title": "Education",
+                "parent_id": 300
+            },
+            {
+                "id": 304,
+                "title": "Entertainment",
+                "parent_id": 300
+            },
+            {
+                "id": 309,
+                "title": "Food & Drink",
+                "parent_id": 300
+            },
+            {
+                "id": 308,
+                "title": "Health & Fitness",
+                "parent_id": 300
+            },
+            {
+                "id": 303,
+                "title": "Lifestyle",
+                "parent_id": 300
+            },
+            {
+                "id": 306,
+                "title": "Travel",
+                "parent_id": 300
+            },
+            {
+                "id": 305,
+                "title": "Utilities",
+                "parent_id": 300
+            }
+        ]
+    },
+    {
+        "id": 100,
+        "title": "Film",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 106,
+                "title": "Action",
+                "parent_id": 100
+            },
+            {
+                "id": 105,
+                "title": "Adult",
+                "parent_id": 100
+            },
+            {
+                "id": 113,
+                "title": "Adventure",
+                "parent_id": 100
+            },
+            {
+                "id": 109,
+                "title": "Animation",
+                "parent_id": 100
+            },
+            {
+                "id": 117,
+                "title": "Biography",
+                "parent_id": 100
+            },
+            {
+                "id": 103,
+                "title": "Comedy",
+                "parent_id": 100
+            },
+            {
+                "id": 130,
+                "title": "Commercial",
+                "parent_id": 100
+            },
+            {
+                "id": 111,
+                "title": "Crime",
+                "parent_id": 100
+            },
+            {
+                "id": 104,
+                "title": "Documentary",
+                "parent_id": 100
+            },
+            {
+                "id": 102,
+                "title": "Drama",
+                "parent_id": 100
+            },
+            {
+                "id": 129,
+                "title": "Experimental",
+                "parent_id": 100
+            },
+            {
+                "id": 110,
+                "title": "Family",
+                "parent_id": 100
+            },
+            {
+                "id": 114,
+                "title": "Fantasy",
+                "parent_id": 100
+            },
+            {
+                "id": 127,
+                "title": "Film-Noir",
+                "parent_id": 100
+            },
+            {
+                "id": 126,
+                "title": "Game-Show",
+                "parent_id": 100
+            },
+            {
+                "id": 119,
+                "title": "History",
+                "parent_id": 100
+            },
+            {
+                "id": 112,
+                "title": "Horror",
+                "parent_id": 100
+            },
+            {
+                "id": 128,
+                "title": "Lifestyle",
+                "parent_id": 100
+            },
+            {
+                "id": 120,
+                "title": "Musical",
+                "parent_id": 100
+            },
+            {
+                "id": 116,
+                "title": "Mystery",
+                "parent_id": 100
+            },
+            {
+                "id": 124,
+                "title": "News",
+                "parent_id": 100
+            },
+            {
+                "id": 123,
+                "title": "Reality-TV",
+                "parent_id": 100
+            },
+            {
+                "id": 107,
+                "title": "Romance",
+                "parent_id": 100
+            },
+            {
+                "id": 115,
+                "title": "Sci-Fi",
+                "parent_id": 100
+            },
+            {
+                "id": 101,
+                "title": "Short",
+                "parent_id": 100
+            },
+            {
+                "id": 118,
+                "title": "Sport",
+                "parent_id": 100
+            },
+            {
+                "id": 125,
+                "title": "Talk-Show",
+                "parent_id": 100
+            },
+            {
+                "id": 108,
+                "title": "Thriller",
+                "parent_id": 100
+            },
+            {
+                "id": 122,
+                "title": "War",
+                "parent_id": 100
+            },
+            {
+                "id": 121,
+                "title": "Western",
+                "parent_id": 100
+            }
+        ]
+    },
+    {
+        "id": 200,
+        "title": "Music",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 217,
+                "title": "Blues",
+                "parent_id": 200
+            },
+            {
+                "id": 213,
+                "title": "Classical",
+                "parent_id": 200
+            },
+            {
+                "id": 205,
+                "title": "Country",
+                "parent_id": 200
+            },
+            {
+                "id": 223,
+                "title": "Dance",
+                "parent_id": 200
+            },
+            {
+                "id": 208,
+                "title": "EDM",
+                "parent_id": 200
+            },
+            {
+                "id": 224,
+                "title": "Electronic",
+                "parent_id": 200
+            },
+            {
+                "id": 204,
+                "title": "Folk",
+                "parent_id": 200
+            },
+            {
+                "id": 203,
+                "title": "Funk",
+                "parent_id": 200
+            },
+            {
+                "id": 218,
+                "title": "Gospel",
+                "parent_id": 200
+            },
+            {
+                "id": 215,
+                "title": "Hip Hop",
+                "parent_id": 200
+            },
+            {
+                "id": 202,
+                "title": "Jazz",
+                "parent_id": 200
+            },
+            {
+                "id": 206,
+                "title": "Latin",
+                "parent_id": 200
+            },
+            {
+                "id": 225,
+                "title": "Meditation",
+                "parent_id": 200
+            },
+            {
+                "id": 216,
+                "title": "Metal",
+                "parent_id": 200
+            },
+            {
+                "id": 210,
+                "title": "Opera",
+                "parent_id": 200
+            },
+            {
+                "id": 201,
+                "title": "Pop",
+                "parent_id": 200
+            },
+            {
+                "id": 209,
+                "title": "Punk",
+                "parent_id": 200
+            },
+            {
+                "id": 214,
+                "title": "R&B",
+                "parent_id": 200
+            },
+            {
+                "id": 211,
+                "title": "Rap",
+                "parent_id": 200
+            },
+            {
+                "id": 219,
+                "title": "Reggae",
+                "parent_id": 200
+            },
+            {
+                "id": 212,
+                "title": "Rock",
+                "parent_id": 200
+            },
+            {
+                "id": 207,
+                "title": "Soul",
+                "parent_id": 200
+            },
+            {
+                "id": 222,
+                "title": "Techno",
+                "parent_id": 200
+            },
+            {
+                "id": 220,
+                "title": "Trap",
+                "parent_id": 200
+            },
+            {
+                "id": 221,
+                "title": "World",
+                "parent_id": 200
+            }
+        ]
+    },
+    {
+        "id": 500,
+        "title": "Videogame",
+        "parent_id": null,
+        "children": [
+            {
+                "id": 501,
+                "title": "Action",
+                "parent_id": 500,
+                "children": [
+                    {
+                        "id": 519,
+                        "title": "Battle Royale games",
+                        "parent_id": 501
+                    },
+                    {
+                        "id": 515,
+                        "title": "Beat 'em up games",
+                        "parent_id": 501
+                    },
+                    {
+                        "id": 514,
+                        "title": "Fighting games",
+                        "parent_id": 501
+                    },
+                    {
+                        "id": 512,
+                        "title": "Platform games",
+                        "parent_id": 501
+                    },
+                    {
+                        "id": 518,
+                        "title": "Rhythm games",
+                        "parent_id": 501
+                    },
+                    {
+                        "id": 513,
+                        "title": "Shooter games",
+                        "parent_id": 501
+                    },
+                    {
+                        "id": 516,
+                        "title": "Stealth game",
+                        "parent_id": 501
+                    },
+                    {
+                        "id": 517,
+                        "title": "Survival games",
+                        "parent_id": 501
+                    }
+                ]
+            },
+            {
+                "id": 502,
+                "title": "Action-adventure",
+                "parent_id": 500,
+                "children": [
+                    {
+                        "id": 521,
+                        "title": "Metroidvania",
+                        "parent_id": 502
+                    },
+                    {
+                        "id": 520,
+                        "title": "Survival horror",
+                        "parent_id": 502
+                    }
+                ]
+            },
+            {
+                "id": 503,
+                "title": "Adventure",
+                "parent_id": 500,
+                "children": [
+                    {
+                        "id": 523,
+                        "title": "Graphic adventures",
+                        "parent_id": 503
+                    },
+                    {
+                        "id": 525,
+                        "title": "Interactive movie",
+                        "parent_id": 503
+                    },
+                    {
+                        "id": 526,
+                        "title": "Real-time 3D adventures",
+                        "parent_id": 503
+                    },
+                    {
+                        "id": 522,
+                        "title": "Text adventures",
+                        "parent_id": 503
+                    },
+                    {
+                        "id": 524,
+                        "title": "Visual novels",
+                        "parent_id": 503
+                    }
+                ]
+            },
+            {
+                "id": 508,
+                "title": "MMO",
+                "parent_id": 500
+            },
+            {
+                "id": 509,
+                "title": "Other",
+                "parent_id": 500,
+                "children": [
+                    {
+                        "id": 568,
+                        "title": "Advergame",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 569,
+                        "title": "Art game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 553,
+                        "title": "Board game or card game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 554,
+                        "title": "Breakout clone game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 555,
+                        "title": "Casino game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 570,
+                        "title": "Casual game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 556,
+                        "title": "Casual games",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 571,
+                        "title": "Christian game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 557,
+                        "title": "Digital collectible card game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 572,
+                        "title": "Educational game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 573,
+                        "title": "Esports",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 574,
+                        "title": "Exergame",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 558,
+                        "title": "Gacha game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 559,
+                        "title": "Horror game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 560,
+                        "title": "Idle game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 561,
+                        "title": "Logic game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 562,
+                        "title": "Party game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 575,
+                        "title": "Personalized game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 563,
+                        "title": "Photography game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 564,
+                        "title": "Programming game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 576,
+                        "title": "Serious game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 565,
+                        "title": "Social deduction game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 566,
+                        "title": "Trivia game",
+                        "parent_id": 509
+                    },
+                    {
+                        "id": 567,
+                        "title": "Typing game",
+                        "parent_id": 509
+                    }
+                ]
+            },
+            {
+                "id": 504,
+                "title": "Role-playing",
+                "parent_id": 500,
+                "children": [
+                    {
+                        "id": 527,
+                        "title": "Action RPG",
+                        "parent_id": 504
+                    },
+                    {
+                        "id": 532,
+                        "title": "First-person party-based RPG",
+                        "parent_id": 504
+                    },
+                    {
+                        "id": 533,
+                        "title": "JRPG",
+                        "parent_id": 504
+                    },
+                    {
+                        "id": 528,
+                        "title": "MMORPG",
+                        "parent_id": 504
+                    },
+                    {
+                        "id": 534,
+                        "title": "Monster Tamer",
+                        "parent_id": 504
+                    },
+                    {
+                        "id": 529,
+                        "title": "Roguelikes",
+                        "parent_id": 504
+                    },
+                    {
+                        "id": 531,
+                        "title": "Sandbox RPG",
+                        "parent_id": 504
+                    },
+                    {
+                        "id": 530,
+                        "title": "Tactical RPG",
+                        "parent_id": 504
+                    }
+                ]
+            },
+            {
+                "id": 511,
+                "title": "Sandbox \/ open world games",
+                "parent_id": 500,
+                "children": [
+                    {
+                        "id": 578,
+                        "title": "Creative",
+                        "parent_id": 511
+                    },
+                    {
+                        "id": 579,
+                        "title": "Open world",
+                        "parent_id": 511
+                    },
+                    {
+                        "id": 577,
+                        "title": "Sandbox",
+                        "parent_id": 511
+                    }
+                ]
+            },
+            {
+                "id": 505,
+                "title": "Simulation",
+                "parent_id": 500,
+                "children": [
+                    {
+                        "id": 535,
+                        "title": "Construction and management simulation",
+                        "parent_id": 505
+                    },
+                    {
+                        "id": 536,
+                        "title": "Life simulation",
+                        "parent_id": 505
+                    },
+                    {
+                        "id": 537,
+                        "title": "Vehicle simulation",
+                        "parent_id": 505
+                    }
+                ]
+            },
+            {
+                "id": 507,
+                "title": "Sports",
+                "parent_id": 500,
+                "children": [
+                    {
+                        "id": 551,
+                        "title": "Competitive",
+                        "parent_id": 507
+                    },
+                    {
+                        "id": 549,
+                        "title": "Racing",
+                        "parent_id": 507
+                    },
+                    {
+                        "id": 550,
+                        "title": "Sports game",
+                        "parent_id": 507
+                    },
+                    {
+                        "id": 552,
+                        "title": "Sports-based fighting",
+                        "parent_id": 507
+                    }
+                ]
+            },
+            {
+                "id": 506,
+                "title": "Strategy",
+                "parent_id": 500,
+                "children": [
+                    {
+                        "id": 538,
+                        "title": "4X game",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 539,
+                        "title": "Artillery game",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 540,
+                        "title": "Auto battler (Auto chess)",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 548,
+                        "title": "Grand strategy wargame",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 541,
+                        "title": "Multiplayer online battle arena (MOBA)",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 542,
+                        "title": "Real-time strategy (RTS)",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 543,
+                        "title": "Real-time tactics (RTT)",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 544,
+                        "title": "Tower defense",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 545,
+                        "title": "Turn-based strategy (TBS)",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 546,
+                        "title": "Turn-based tactics (TBT)",
+                        "parent_id": 506
+                    },
+                    {
+                        "id": 547,
+                        "title": "Wargame",
+                        "parent_id": 506
+                    }
+                ]
+            }
+        ]
+    }
+]
