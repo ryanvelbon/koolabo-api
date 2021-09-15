@@ -2,9 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\JobVacancy;
-use App\Helpers\Lorem;
 use Illuminate\Database\Eloquent\Factories\Factory;
+
+use App\Models\JobVacancy;
+use App\Models\User;
+use App\Models\Job;
+use App\Models\City;
 
 class JobVacancyFactory extends Factory
 {
@@ -26,12 +29,11 @@ class JobVacancyFactory extends Factory
         $endsAt = date('Y-m-d', strtotime("+30 day", strtotime($createdAt)));
 
         return [
-            'slug' => md5(uniqid(rand(), true)),
             'title' => $this->faker->text($maxNbChars = 150),
             'description' => $this->faker->text($maxNbChars = 2000),
-            'posted_by' => \App\Models\User::inRandomOrder()->first()->id,
-            'job_id' => \App\Models\Job::inRandomOrder()->first()->id,
-            'city_id' => \App\Models\City::inRandomOrder()->first()->id,
+            'posted_by' => User::inRandomOrder()->first()->id,
+            'job_id' => Job::inRandomOrder()->first()->id,
+            'city_id' => City::where('id', '<', 20)->inRandomOrder()->first()->id,
             'is_active' => rand(0,10) >= 2,
             'created_at' => $createdAt,
             'ends_at' => $endsAt,

@@ -15,7 +15,7 @@ class Project extends Model
     	'title',
     	'description',
         'created_by',
-    	'manager',
+    	'manager_id',
     	'type',
     	'projected_timeline',
     	'planned_start_date',
@@ -24,7 +24,7 @@ class Project extends Model
 
     public function manager()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User', 'manager_id');
     }
 
     public function jobs()

@@ -81,4 +81,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Skill::class, 'user_skills')->withPivot('level');
     }
+
+    public function jobVacanciesPosted()
+    {
+        return $this->hasMany(JobVacancy::class);
+    }
 }

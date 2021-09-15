@@ -19,20 +19,24 @@ class JobVacancy extends Model
         'ends_at'
     ];
 
-    // not necessary? Can be derived from an SQL JOIN
-    public function postedBy(){
-    	return $this->belongsTo('App\Models\User');
+    public function job()
+    {
+        return $this->belongsTo('App\Models\Job');
+    }
+
+    public function postedBy()
+    {
+    	return $this->belongsTo('App\Models\User', 'posted_by');
     }
 
     public function city()
     {
-        return $this->hasOne('App\Models\City');
+        return $this->belongsTo('App\Models\City');
     }
 
-    // not necessary? Can be derived from an SQL JOIN
-    public function topics(){
-        return $this->belongsToMany('App\Models\Topic');
-    }
+    // public function topics(){
+    //     return $this->belongsToMany('App\Models\Topic');
+    // }
 
     public function skills(){
         return $this->belongsToMany('App\Models\Skill');

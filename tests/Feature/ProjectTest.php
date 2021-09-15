@@ -18,14 +18,14 @@ class ProjectTest extends TestCase
 
     /*
      *   POST & PATCH requests to /api/projects should not include
-     *   `created_by` and `manager` fields since these fields
+     *   `created_by` and `manager_id` fields since these fields
      *   are set by the Controller.
      */
     private function generate_dummy_form_data()
     {
         $data = Project::factory()->make()->toArray();
         unset($data['created_by']);
-        unset($data['manager']);
+        unset($data['manager_id']);
 
         return $data;
     }
@@ -45,10 +45,9 @@ class ProjectTest extends TestCase
     {
         $this->seed();
 
-        Sanctum::actingAs(
-            User::factory()->create(),
-            ['*']
-        );
+        $user = User::factory()->create();
+
+        Sanctum::actingAs($user, ['*']);
 
         $data = $this->generate_dummy_form_data();
 
@@ -75,9 +74,8 @@ class ProjectTest extends TestCase
         $this->seed();
 
         $project = Project::inRandomOrder()->first();
-        $user = User::find($project->manager);
 
-        Sanctum::actingAs($user, ['*']);
+        Sanctum::actingAs($project->manager, ['*']);
 
         $response = $this->json('DELETE', '/api/projects/'.$project->id);
         $response->assertStatus(200);
@@ -88,9 +86,8 @@ class ProjectTest extends TestCase
         $this->seed();
 
         $project = Project::inRandomOrder()->first();
-        $manager = User::find($project->manager);
 
-        Sanctum::actingAs($manager, ['*']);
+        Sanctum::actingAs($project->manager, ['*']);
 
         $data = $this->generate_dummy_form_data();
 
@@ -132,7 +129,7 @@ class ProjectTest extends TestCase
 
         $response->assertStatus(201);
 
-        $managerId = (int) json_decode($response->content())->manager;
+        $managerId = (int) json_decode($response->content())->manager_id;
 
         $this->assertEquals($managerId, $user->id);
     }
@@ -154,12 +151,12 @@ class ProjectTest extends TestCase
         $projectId = (int) json_decode($response->content())->id;
 
         // user A updates project so that user B is now the manager
-        $response = $this->json('PATCH', '/api/projects/'.$projectId, ['manager' => $userB->id]);
+        $response = $this->json('PATCH', '/api/projects/'.$projectId, ['manager_id' => $userB->id]);
         $response->assertStatus(200); // should it be 204 instead?
 
         $response = $this->json('GET', '/api/projects/'.$projectId);
         $response->assertStatus(200);
-        $managerId = (int) json_decode($response->content())->manager;
+        $managerId = (int) json_decode($response->content())->manager_id;
 
         $this->assertEquals($managerId, $userB->id);
     }

@@ -34,7 +34,7 @@ class ProjectFactory extends Factory
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'created_by' => $user->id,
-            'manager' => $user->id,
+            'manager_id' => $user->id,
             'type' => DB::table('_project_types')->inRandomOrder()->first()->id,
             'projected_timeline' => DB::table('_project_timelines')->inRandomOrder()->first()->id,
             'planned_start_date' => $plannedStartDate,

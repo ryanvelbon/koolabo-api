@@ -37,7 +37,7 @@ class ProjectController extends Controller
 
         $data = $request->all();
         $data['created_by'] = $request->user()->id;
-        $data['manager'] = $request->user()->id;
+        $data['manager_id'] = $request->user()->id;
 
         return Project::create($data);
     }

@@ -42,7 +42,7 @@ class CreateViewProjects extends Migration
                 projects.planned_end_date AS end_date
             FROM
                 projects
-                LEFT JOIN users ON projects.manager = users.id
+                LEFT JOIN users ON projects.manager_id = users.id
                 LEFT JOIN _project_types ON projects.type = _project_types.id
                 LEFT JOIN _project_timelines ON projects.projected_timeline = _project_timelines.id;
         ");

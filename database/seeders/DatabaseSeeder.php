@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
         $execution_time = ($time_end - $time_start);
         $t = number_format($execution_time, 2, '.', '');
 
-        // printf("Success: Database Seeded in {$t}s");
+        if(config('database.default') == 'mysql')
+            printf("Success: Database Seeded in {$t}s");
     }
 }

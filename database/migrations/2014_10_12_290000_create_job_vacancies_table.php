@@ -15,7 +15,6 @@ class CreateJobVacanciesTable extends Migration
             $table->unsignedBigInteger('job_id');
             $table->unsignedBigInteger('posted_by')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
-            $table->string('slug', 150)->unique();
             $table->boolean('is_active')->default(True);
             $table->date('ends_at');
             $table->timestamps();

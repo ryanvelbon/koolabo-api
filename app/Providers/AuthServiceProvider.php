@@ -9,6 +9,7 @@ use Illuminate\Auth\Access\Response;
 
 use App\Models\User;
 use App\Models\Project;
+use App\Models\JobVacancy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -31,15 +32,15 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('isManager', function (User $user, Project $project) {
-            return $user->id == $project->manager
+            return $user->id == $project->manager_id
                         ? Response::allow()
                         : Response::deny('You must be Project Manager to perform this action.');
         });
 
-        Gate::define('isOwnerOfSkill', function (User $user, $uuid) {
-            return DB::table('skill_user')->where('uuid', $uuid)->first()->user_id == $user->id
+        Gate::define('canEditDeleteJobListing', function (User $user, JobVacancy $listing) {
+            return $user->id == $listing->posted_by || $user->id == $listing->job->project->manager->id
                         ? Response::allow()
-                        : Response::deny("You do not have any skill with id : {$uuid}");
+                        : Response::deny('Only project manager and listing author can perform this action.');
         });
     }
 }

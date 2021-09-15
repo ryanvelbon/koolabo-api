@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
+use App\Models\Job;
 use App\Models\JobVacancy;
 
 class JobVacancyController extends Controller
@@ -33,8 +35,11 @@ class JobVacancyController extends Controller
 
         ]);
 
+        $project = Job::find($request['job_id'])->project;
+
+        Gate::authorize('isManager', $project);
+
         $data = $request->all();
-        $data['slug'] = md5(uniqid(rand(), true));
         $data['ends_at'] = date('Y-m-d', strtotime("+30 day", strtotime(now())));
 
         return JobVacancy::create($data);
@@ -64,9 +69,14 @@ class JobVacancyController extends Controller
     {
         // validate?
 
-        $vacancy = JobVacancy::find($id);
-        $vacancy->update($request->all());
-        return $vacancy;
+        $listing = JobVacancy::find($id);
+        $project = $listing->job->project;
+
+        Gate::authorize('canEditDeleteJobListing', $listing);
+
+        $listing->update($request->all());
+
+        return $listing;
     }
 
     /**
@@ -75,11 +85,16 @@ class JobVacancyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        // use middleware or just check user_id
+        $listing = JobVacancy::findOrFail($id);
+        $project = $listing->job->project;
 
-        return JobVacancy::destroy($id);
+        Gate::authorize('canEditDeleteJobListing', $listing);
+
+        JobVacancy::destroy($id);
+
+        return response('Job Listing has been deleted', 200);
     }
 
     /**

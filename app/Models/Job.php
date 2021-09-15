@@ -20,4 +20,9 @@ class Job extends Model
     {
     	return $this->hasMany('App\Models\JobVacancy');
     }
+
+    public function project()
+    {
+        return $this->belongsTo('App\Models\Project');
+    }
 }

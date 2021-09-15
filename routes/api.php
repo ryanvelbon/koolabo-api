@@ -31,6 +31,8 @@ Route::get('/projects/{id}', [ProjectController::class, 'show']);
 Route::get('/projects/{id}/likes', [ProjectLikeController::class, 'index']);
 Route::get('/projects/search/{name}', [ProjectController::class, 'search']);
 Route::get('/users/{id}/skills', [UserSkillController::class, 'index']);
+Route::get('/job-vacancies', [JobVacancyController::class, 'index']);
+Route::get('/job-vacancies/{id}', [JobVacancyController::class, 'show']);
 
 
 // Route::get('/recommendations/skill', []);
@@ -55,6 +57,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // ** Alternatively, you can do this:
     // Route::apiResource('jobs', JobController::class)->except(['index', 'show']);
     // Route::apiResource('projects/{project}/jobs', JobController::class)->except(['index', 'show']);
+
+
+    // job vacancies
+    Route::post('/job-vacancies', [JobVacancyController::class, 'store']);
+    Route::patch('/job-vacancies/{id}', [JobVacancyController::class, 'update']);
+    Route::delete('/job-vacancies/{id}', [JobVacancyController::class, 'destroy']);
 
 
     // user skills

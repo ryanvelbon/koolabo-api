@@ -24,7 +24,7 @@ class JobTest extends TestCase
 
         $project = Project::inRandomOrder()->first();
         $nJobs = $project->jobs->count();
-        $user = User::find($project->manager);
+        $user = $project->manager;
         Sanctum::actingAs($user, ['*']);
 
         $data = [
@@ -50,7 +50,7 @@ class JobTest extends TestCase
         $project = Project::find($job->project_id);
         $nJobs = $project->jobs->count();
 
-        $user = User::find($project->manager);
+        $user = $project->manager;
         Sanctum::actingAs($user, ['*']);
 
         $response = $this->json('DELETE', '/api/jobs/'.$job->id);
@@ -69,7 +69,7 @@ class JobTest extends TestCase
         $job = Job::inRandomOrder()->first();
         $project = Project::find($job->project_id);
         
-        $user = User::find($project->manager);
+        $user = $project->manager;
         Sanctum::actingAs($user, ['*']);
 
         $data = [

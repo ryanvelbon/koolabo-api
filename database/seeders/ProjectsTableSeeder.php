@@ -13,6 +13,6 @@ class ProjectsTableSeeder extends Seeder
     {
 		DB::table('projects')->delete();
 
-		Project::factory()->count(5)->create();
+		Project::factory()->count(100)->create();
     }
 }
