@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use App\Models\Project;
 // use App\Models\ProjectLike;
 use App\Models\Language;
+use App\Models\Rsvp;
 
 
 class User extends Authenticatable
@@ -91,5 +93,10 @@ class User extends Authenticatable
     public function jobVacanciesPosted()
     {
         return $this->hasMany(JobVacancy::class);
+    }
+
+    public function rsvps(): BelongsToMany
+    {
+        return $this->belongsToMany(Meetup::class, 'rsvps')->withPivot('status');
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectLikeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobVacancyController;
+use App\Http\Controllers\MeetupController;
 // use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserSkillController;
 use App\Http\Controllers\UserLanguageController;
@@ -33,6 +34,8 @@ Route::get('/projects/search/{name}', [ProjectController::class, 'search']);
 Route::get('/users/{id}/skills', [UserSkillController::class, 'index']);
 Route::get('/job-vacancies', [JobVacancyController::class, 'index']);
 Route::get('/job-vacancies/{id}', [JobVacancyController::class, 'show']);
+Route::get('/meetups', [MeetupController::class, 'index']);
+Route::get('/meetups/{id}', [MeetupController::class, 'show']);
 
 
 // Route::get('/recommendations/skill', []);
@@ -63,6 +66,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/job-vacancies', [JobVacancyController::class, 'store']);
     Route::patch('/job-vacancies/{id}', [JobVacancyController::class, 'update']);
     Route::delete('/job-vacancies/{id}', [JobVacancyController::class, 'destroy']);
+
+    // meetups
+    Route::post('/meetups', [MeetupController::class, 'store']);
+    Route::patch('/meetups/{id}', [MeetupController::class, 'update']);
+    Route::delete('/meetups/{id}', [MeetupController::class, 'destroy']);
+
+    // meetup RSVPs
 
 
     // user skills

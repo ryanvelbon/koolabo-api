@@ -10,6 +10,7 @@ use Illuminate\Auth\Access\Response;
 use App\Models\User;
 use App\Models\Project;
 use App\Models\JobVacancy;
+use App\Models\Meetup;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,12 @@ class AuthServiceProvider extends ServiceProvider
             return $user->id == $project->manager_id
                         ? Response::allow()
                         : Response::deny('You must be Project Manager to perform this action.');
+        });
+
+        Gate::define('isOrganizer', function (User $user, Meetup $meetup) {
+            return $user->id == $meetup->organizer_id
+                        ? Response::allow()
+                        : Response::deny('You must be Event Organizer to perform this action.');
         });
 
         Gate::define('canEditDeleteJobListing', function (User $user, JobVacancy $listing) {

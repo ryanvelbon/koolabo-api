@@ -48,8 +48,9 @@ class DatabaseSeeder extends Seeder
 
             JobsTableSeeder::class,
             JobVacanciesTableSeeder::class,
-            
             // JobVacancySkillTableSeeder::class,
+
+            MeetupsTableSeeder::class
         ]);
 
         $time_end = microtime(true);
