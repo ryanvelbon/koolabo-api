@@ -37,18 +37,12 @@ class DatabaseSeeder extends Seeder
             SkillsTableSeeder::class,
             TopicsTableSeeder::class,
 
-            
-            UserLanguagesTableSeeder::class,
-            UserCraftsTableSeeder::class,
-            UserSkillsTableSeeder::class,
-            UserTopicsTableSeeder::class,
+            UserProfilesTableSeeder::class,
 
             ProjectsTableSeeder::class,
-            ProjectLikesTableSeeder::class,
 
             JobsTableSeeder::class,
             JobVacanciesTableSeeder::class,
-            // JobVacancySkillTableSeeder::class,
 
             MeetupsTableSeeder::class
         ]);

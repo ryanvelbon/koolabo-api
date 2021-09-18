@@ -4,12 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Config;
-use Faker;
 
 use App\Models\User;
-use App\Models\UserProfile;
-use App\Models\City;
 
 
 class UsersTableSeeder extends Seeder
@@ -20,27 +16,8 @@ class UsersTableSeeder extends Seeder
 
         $users = User::factory()->count(50)->create();
 
-        $faker = Faker\Factory::create();
-        $genders = Config::get('constants.genderOptions');
-        $availabilities = Config::get('constants.availabilityOptions');
-
-        foreach($users as $user){
-            UserProfile::create(
-                array(
-                    'user_id' => $user->id,
-                    'date_of_birth' => date('Y-m-d', rand(0500000000,1000000000)),
-                    'city_id' => City::inRandomOrder()->first()->id,
-                    'bio_short' => $faker->text($maxNbChars = 160),
-                    'bio_long' => $faker->text($maxNbChars = 2000),
-                    'first_name' => $faker->firstName,
-                    'last_name' => $faker->lastName,
-                    'gender' => $genders[array_rand($genders)],
-                    'availability' => $availabilities[array_rand($availabilities)],
-                )
-            );
-        }
-
-        $this->create_user_for_postman();
+        // *REVISIT* this had to be commented out due to tests failing when running `php artisan test`. There seems to be no User with id 1 when some tests execute
+        // $this->create_user_for_postman();
     }
 
     /*

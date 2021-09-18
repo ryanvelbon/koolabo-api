@@ -38,7 +38,7 @@ class UserLanguageTest extends TestCase
             $response = $this->json('POST', "/api/users/me/languages/{$language->id}");
             $response->assertStatus(201);
         }
-        $this->assertEquals($user->refresh()->languages->count(), $n);
+        $this->assertEquals($n, $user->refresh()->languages->count());
     }
 
     public function test_user_can_remove_language_from_profile()
@@ -53,10 +53,10 @@ class UserLanguageTest extends TestCase
                 'language_id' => $language->id
             ]);
         }
-        $this->assertEquals($user->refresh()->languages->count(), $n);
+        $this->assertEquals($n, $user->refresh()->languages->count());
         Sanctum::actingAs($user, ['*']);
         $this->json('DELETE', "/api/users/me/languages/{$languages[0]->id}");
-        $this->assertEquals($user->refresh()->languages->count(), $n-1);
+        $this->assertEquals($n-1, $user->refresh()->languages->count());
     }
 
     public function SKIP_post_request_is_idempotent()

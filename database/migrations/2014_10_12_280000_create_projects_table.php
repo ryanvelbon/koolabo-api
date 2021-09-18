@@ -6,6 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProjectsTable extends Migration
 {
+    /*
+
+    Additional columns we could incorporate into table:
+    - budget
+    - funding (e.g., self-funding?)
+    - language (what language will the team communicate in?)
+    - status
+    - stage
+        lifecycle depends on the project type
+        e.g., Producing a film involves: script development, budgeting, production, post-production, marketing, and distribution
+     */
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
@@ -19,24 +30,7 @@ class CreateProjectsTable extends Migration
             $table->date('planned_start_date');
             $table->date('planned_end_date');
             $table->timestamps();
-
-
-            // budget
-
-            // funding (e.g., self-funding?)
-
-            // language (what language will the team communicate in?)
-
-            // status
-
-            /* 
-             * stage
-             *
-             * lifecycle depends on the project type
-             * e.g., Producing a film involves: script development, budgeting, production, post-production, marketing, and distribution
-             *
-             */
-
+            $table->softDeletes();
             
             // relationships
             $table->foreign('created_by')->references('id')->on('users')->onDelete('RESTRICT');
@@ -44,10 +38,50 @@ class CreateProjectsTable extends Migration
             $table->foreign('type')->references('id')->on('_project_types')->onDelete('RESTRICT');
             $table->foreign('projected_timeline')->references('id')->on('_project_timelines')->onDelete('RESTRICT');
         });
+
+        Schema::create('project_topics', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('project_id')->index();
+            $table->foreignId('topic_id')->index();
+            $table->timestamps();
+
+            $table->unique(['project_id', 'topic_id']);
+        });
+
+        Schema::create('project_members', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->index();
+            $table->foreignId('project_id')->index();
+            $table->timestamps();
+
+            $table->unique(['user_id', 'project_id']);
+        });
+
+        Schema::create('project_likes', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->index();
+            $table->foreignId('project_id')->index();
+            $table->timestamps();
+
+            $table->unique(['user_id', 'project_id']);
+        });
+
+        Schema::create('project_followers', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->index();
+            $table->foreignId('project_id')->index();
+            $table->timestamps();
+
+            $table->unique(['user_id', 'project_id']);
+        });
     }
 
     public function down()
     {
+        Schema::dropIfExists('project_followers');
+        Schema::dropIfExists('project_likes');
+        Schema::dropIfExists('project_members');
+        Schema::dropIfExists('project_topics');
         Schema::dropIfExists('projects');
     }
 }

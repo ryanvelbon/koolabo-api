@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use App\Models\User;
 
@@ -20,7 +21,7 @@ class Skill extends Model
         'pivot'
     ];
 
-    public function users()
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'user_skills');
     }

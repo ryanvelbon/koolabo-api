@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class JobVacancy extends Model
 {
@@ -19,26 +21,23 @@ class JobVacancy extends Model
         'ends_at'
     ];
 
-    public function job()
+    public function job(): BelongsTo
     {
         return $this->belongsTo(Job::class);
     }
 
-    public function postedBy()
+    public function postedBy(): BelongsTo
     {
     	return $this->belongsTo(User::class, 'posted_by');
     }
 
-    public function city()
+    public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
     }
 
-    // public function topics(){
-    //     return $this->belongsToMany(Topic::class);
-    // }
-
-    public function skills(){
-        return $this->belongsToMany(Skill::class);
+    public function skills(): BelongsToMany
+    {
+        return $this->belongsToMany(Skill::class, 'job_vacancy_skills');
     }
 }

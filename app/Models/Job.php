@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Job extends Model
 {
@@ -16,17 +18,17 @@ class Job extends Model
     ];
 
     // allow an unoccupied job to be listed again after the listing expires
-    public function listings()
+    public function listings(): HasMany
     {
     	return $this->hasMany(JobVacancy::class);
     }
 
-    public function craft()
+    public function craft(): BelongsTo
     {
         return $this->belongsTo(Craft::class);
     }
 
-    public function project()
+    public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
     }

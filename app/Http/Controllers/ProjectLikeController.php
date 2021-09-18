@@ -11,7 +11,7 @@ class ProjectLikeController extends Controller
 {
     public function index($projectId)
     {
-        return Project::find($projectId)->likers;
+        return Project::find($projectId)->likes;
     }
 
     public function store(Request $request, $projectId)

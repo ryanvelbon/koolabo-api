@@ -21,21 +21,14 @@ class UserLanguageController extends Controller
         // return 404 HTTP response if language locator is incorrect
         $language = Language::findOrFail($id);
 
-        // otherwise proceed and add language to profile
-        UserLanguage::create([
-            'user_id' => $user->id,
-            'language_id' => $language->id
-        ]);
+        $user->languages()->attach($language);
 
         return response("Success. {$language->title} added to your languages", 201);
     }
 
     public function destroy(Request $request, $id)
     {
-        UserLanguage::where('user_id', $request->user()->id)
-                        ->where('language_id', $id)
-                        ->firstOrFail()
-                        ->delete();
+        $request->user()->languages()->detach($id);
 
         return response('Language has been removed', 204);
     }

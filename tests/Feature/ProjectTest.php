@@ -10,6 +10,7 @@ use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Topic;
 
 class ProjectTest extends TestCase
 {
@@ -30,6 +31,37 @@ class ProjectTest extends TestCase
         return $data;
     }
 
+    public function test_eloquent_relationships()
+    {
+        $this->seed();
+
+        $nLikes = 20;
+        $nFollowers = 5;
+        $nTopics = 3;
+        $nMembers = 4; // team size
+
+
+        $user = User::inRandomOrder()->first();
+        $project = Project::factory()->for($user, 'manager')->create();
+        $project->images()->create(['path' => 'image1.png']);
+        $project->images()->create(['path' => 'image2.png']);
+        $project->likes()->attach(User::inRandomOrder()->take($nLikes)->get());
+        $project->followers()->attach(User::inRandomOrder()->take($nFollowers)->get());
+        $project->topics()->attach(Topic::inRandomOrder()->take($nTopics)->get());
+        $project->members()->attach(User::inRandomOrder()->take($nMembers)->get());
+
+        $project->refresh();
+
+        $this->assertEquals(2, $project->images->count());
+        $this->assertEquals($user->id, $project->manager->id);
+        $this->assertEquals($nLikes, $project->likes->count());
+        $this->assertEquals($nFollowers, $project->followers->count());
+        $this->assertEquals($nTopics, $project->topics->count());
+        $this->assertEquals($nMembers, $project->members->count());
+        
+
+    }
+    
     public function test_unauthenticated_user_cannot_create_project()
     {
         $this->seed();

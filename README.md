@@ -1,23 +1,53 @@
 
+# Task Reminders in Code are marked as follows:
+*PENDING*
+*REFACTOR*
+*REVISIT* nothing urgent
 
 
 User seeder: `users` table will always be seeded with an entry username:'ryan' password 'password'
 Allowing us to set authentication in Postman.
 
 
-# Terminology/Taxonomy: Models
+# Models
 
-Project
-	Every Project consists of a minimum of 2 jobs and 2 team members.
-	A Project should tell the public:
+## Project
 
-Job
-	When a Job is unoccupied, the project manager can post a listing for the vacancy by creating a JobVacancy.
+Every Project consists of a minimum of 2 jobs and 2 team members.
 
-JobVacancy
-	A listing for a job which is unoccupied.
-	For mere convenience and consistency, throughout the project we typically assign a JobVacancy instance to a variable '$listing' rather than '$jobVacancy' e.g.:
+A Project should tell the public:
+
+## Job
+When a Job is unoccupied, the project manager can post a listing for the vacancy by creating a JobVacancy.
+
+## JobVacancy
+A listing for a job which is unoccupied.
+For mere convenience and consistency, throughout the project we typically assign a JobVacancy instance to a variable '$listing' rather than '$jobVacancy' e.g.:
 	$listing = JobVacancy::find($id)
+
+# Tables (without a model)
+
+## `genres`
+Every project has exactly 1 genre.
+
+What is a genre?
+
+Examples
+
+* **music** funk, rock, pop
+* **film** horror, thriller, romance
+* **app** finance, social, utilities, entertainment
+
+
+## `project_types`
+
+What is a project type?
+
+Examples
+
+* **music** song, album, jam session, live performance
+* **app** web app, desktop app, mobile app
+
 
 # Eloquent
 
