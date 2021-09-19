@@ -40,6 +40,11 @@ class Meetup extends Model
         return $this->morphMany(Image::class, 'resource');
     }
 
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'resource');
+    }
+
     public function rsvps(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'rsvps')->withPivot('status');

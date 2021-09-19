@@ -32,7 +32,7 @@ class MeetupController extends Controller
 
     public function show($id)
     {
-        return Meetup::find($id)->load('images', 'rsvps');
+        return Meetup::find($id)->load('images', 'rsvps', 'comments');
     }
 
     public function store(Request $request)
