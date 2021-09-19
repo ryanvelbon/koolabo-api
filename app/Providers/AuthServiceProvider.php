@@ -9,6 +9,7 @@ use Illuminate\Auth\Access\Response;
 
 use App\Models\User;
 use App\Models\Project;
+use App\Models\ProjectInvite;
 use App\Models\JobVacancy;
 use App\Models\Meetup;
 
@@ -48,6 +49,12 @@ class AuthServiceProvider extends ServiceProvider
             return $user->id == $listing->posted_by || $user->id == $listing->job->project->manager->id
                         ? Response::allow()
                         : Response::deny('Only project manager and listing author can perform this action.');
+        });
+
+        Gate::define('canSeeProjectInvite', function (User $user, ProjectInvite $invite) {
+            return $user->id == $invite->sender_id || $user->id == $invite->recipient_id || $user->id == $invite->project->manager_id
+                        ? Response::allow()
+                        : Response::deny('You are not authorized to see this invititaion.');
         });
     }
 }

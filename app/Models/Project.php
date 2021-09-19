@@ -36,6 +36,11 @@ class Project extends Model
         return $this->belongsToMany(User::class, 'project_members')->withTimestamps();
     }
 
+    public function invites(): HasMany
+    {
+        return $this->hasMany(ProjectInvite::class, 'project_id');
+    }
+
     public function jobs(): HasMany
     {
         return $this->hasMany(Job::class);

@@ -57,6 +57,24 @@ class CreateProjectsTable extends Migration
             $table->unique(['user_id', 'project_id']);
         });
 
+        Schema::create('project_invites', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('sender_id');
+            $table->unsignedBigInteger('recipient_id');
+            $table->unsignedBigInteger('project_id');
+            $table->string('msg');
+            $table->tinyInteger('status')->default(1);
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('sender_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign('recipient_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('CASCADE');
+
+            // *REVISE*
+            $table->unique(['recipient_id', 'project_id', 'status']);
+        });
+
         Schema::create('project_likes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->index();
@@ -80,6 +98,7 @@ class CreateProjectsTable extends Migration
     {
         Schema::dropIfExists('project_followers');
         Schema::dropIfExists('project_likes');
+        Schema::dropIfExists('project_invites');
         Schema::dropIfExists('project_members');
         Schema::dropIfExists('project_topics');
         Schema::dropIfExists('projects');

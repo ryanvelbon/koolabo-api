@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectLikeController;
+use App\Http\Controllers\ProjectInviteController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobVacancyController;
 use App\Http\Controllers\MeetupController;
@@ -44,13 +45,22 @@ Route::get('/meetups/{id}', [MeetupController::class, 'show']);
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
+
     // projects
     Route::post('/projects', [ProjectController::class, 'store']);
     Route::patch('/projects/{id}', [ProjectController::class, 'update']);
     Route::delete('/projects/{id}', [ProjectController::class, 'destroy']);
+
     // project likes
     Route::post('/projects/{id}/likes', [ProjectLikeController::class, 'store']);
     Route::delete('/projects/{id}/likes', [ProjectLikeController::class, 'destroy']);
+
+    // project invites
+    Route::get('/users/me/project-invites', [ProjectInviteController::class, 'index']);
+    Route::get('/projects/{projectId}/invites/{id}', [ProjectInviteController::class, 'show']);
+    Route::post('/projects/{projectId}/invites', [ProjectInviteController::class, 'store']);
+    Route::patch('/projects/{projectId}/invites/{id}', [ProjectInviteController::class, 'update']);
+    Route::delete('/projects/{projectId}/invites/{id}', [ProjectInviteController::class, 'destroy']);
 
 
     // jobs
