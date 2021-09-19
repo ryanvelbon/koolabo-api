@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FriendshipController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectLikeController;
 use App\Http\Controllers\ProjectInviteController;
@@ -45,6 +46,10 @@ Route::get('/meetups/{id}', [MeetupController::class, 'show']);
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
+
+    // friendships
+    Route::post('/friendships/users/{id}/follow', [FriendshipController::class, 'follow']);
+    Route::post('/friendships/users/{id}/unfollow', [FriendshipController::class, 'unfollow']);
 
     // projects
     Route::post('/projects', [ProjectController::class, 'store']);

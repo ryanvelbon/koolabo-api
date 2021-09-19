@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
              */
 
             UsersTableSeeder::class,
+            // FollowingsTableSeeder::class,
             
             GenresTableSeeder::class,
             CraftsTableSeeder::class,

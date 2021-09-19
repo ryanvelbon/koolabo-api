@@ -38,6 +38,16 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class);
     }
 
+    public function followers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'followings', 'followee_id', 'follower_id');
+    }
+
+    public function followees(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'followings', 'follower_id', 'followee_id');
+    }
+
     public function images(): MorphMany
     {
         return $this->morphMany(Image::class, 'resource');
