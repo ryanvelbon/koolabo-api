@@ -13,6 +13,7 @@ use App\Models\ProjectInvite;
 use App\Models\JobVacancy;
 use App\Models\Meetup;
 use App\Models\Chat;
+use App\Models\ChatInvite;
 use App\Models\ChatParticipant;
 use App\Models\Message;
 
@@ -76,6 +77,18 @@ class AuthServiceProvider extends ServiceProvider
             return $chat->participants->find($user->id)
                         ? Response::allow()
                         : Response::deny('You must be a participant of this conversation to perform this action.');
+        });
+
+        Gate::define('isChatInviteRecipient', function (User $user, ChatInvite $invite) {
+            return $user->id == $invite->recipient_id
+                        ? Response::allow()
+                        : Response::deny('Only the recipient of this chat invitation can perform this action.');
+        });
+
+        Gate::define('isChatInviteSender', function (User $user, ChatInvite $invite) {
+            return $user->id == $invite->sender_id
+                        ? Response::allow()
+                        : Response::deny('Only the sender of this chat invivation can perform this action.');
         });
 
         Gate::define('isMessageAuthor', function (User $user, Message $message) {

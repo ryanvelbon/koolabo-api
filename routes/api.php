@@ -64,6 +64,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     // chats (invites)
     Route::post('/chats/{chatId}/invites', [ChatInviteController::class, 'store']);
+    Route::patch('/chats/{chatId}/invites/{id}', [ChatInviteController::class, 'update']);
+    Route::delete('/chats/{chatId}/invites/{id}', [ChatInviteController::class, 'destroy']);
 
     // chats (messages)
     Route::post('/chats/{id}/messages', [MessageController::class, 'store']);

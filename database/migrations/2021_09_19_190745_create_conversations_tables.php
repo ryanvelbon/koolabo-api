@@ -37,6 +37,7 @@ class CreateConversationsTables extends Migration
             $table->unsignedBigInteger('sender_id');
             $table->tinyInteger('status')->default(ChatInvite::STATUS_SENT);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('recipient_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->foreign('sender_id')->references('id')->on('users')->onDelete('CASCADE');
