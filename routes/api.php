@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FriendshipController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ChatInviteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectLikeController;
@@ -60,6 +61,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/chats', [ChatController::class, 'store']);
     Route::patch('/chats/{id}', [ChatController::class, 'update']);
     Route::delete('/chats/{id}', [ChatController::class, 'destroy']);
+
+    // chats (invites)
+    Route::post('/chats/{chatId}/invites', [ChatInviteController::class, 'store']);
 
     // chats (messages)
     Route::post('/chats/{id}/messages', [MessageController::class, 'store']);

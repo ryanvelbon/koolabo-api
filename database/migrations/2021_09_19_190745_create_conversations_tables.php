@@ -4,12 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use App\Models\ChatInvite;
 use App\Models\ChatParticipant;
 
 class CreateConversationsTables extends Migration
 {
     public function up()
     {
+
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
             // $table->dateTime('last_msg_id'); // not possible because `messages` table is created after
@@ -27,6 +29,22 @@ class CreateConversationsTables extends Migration
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('CASCADE');
         });
 
+
+        Schema::create('chat_invites', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('chat_id');
+            $table->unsignedBigInteger('recipient_id');
+            $table->unsignedBigInteger('sender_id');
+            $table->tinyInteger('status')->default(ChatInvite::STATUS_SENT);
+            $table->timestamps();
+
+            $table->foreign('recipient_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign('sender_id')->references('id')->on('users')->onDelete('CASCADE');
+
+            $table->unique(['chat_id', 'recipient_id', 'status']);
+        });
+
+
         Schema::create('chat_participants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('chat_id');
@@ -37,6 +55,7 @@ class CreateConversationsTables extends Migration
 
             $table->unique(['chat_id', 'user_id']);
         });
+
 
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
@@ -49,11 +68,13 @@ class CreateConversationsTables extends Migration
         });
     }
 
+
     public function down()
     {
         Schema::dropIfExists('messages');
         Schema::dropIfExists('chat_participants');
         // Schema::dropIfExists('group_chat_invites');
+        Schema::dropIfExists('chat_invites');
         Schema::dropIfExists('chats');
     }
 }

@@ -53,6 +53,16 @@ class User extends Authenticatable
         return $this->belongsToMany(Chat::class, 'chat_participants');
     }
 
+    public function chatInvites(): HasMany
+    {
+        return $this->hasMany(ChatInvite::class, 'recipient_id');
+    }
+
+    // public function chatsInvitedTo(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(Chat::class, 'chat_invites', 'recipient_id', 'chat_id');
+    // }
+
     public function images(): MorphMany
     {
         return $this->morphMany(Image::class, 'resource');

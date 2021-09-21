@@ -13,6 +13,7 @@ use App\Models\ProjectInvite;
 use App\Models\JobVacancy;
 use App\Models\Meetup;
 use App\Models\Chat;
+use App\Models\ChatParticipant;
 use App\Models\Message;
 
 class AuthServiceProvider extends ServiceProvider
@@ -66,7 +67,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('isChatAdmin', function (User $user, Chat $chat) {
-            return $chat->participants->where('role', ChatParticipant::ROLE_ADMIN)->find($user->id)
+            return $chat->participants->where('pivot.role', ChatParticipant::ROLE_ADMIN)->find($user->id)
                         ? Response::allow()
                         : Response::deny('Only chat admin can perform this action.');
         });
