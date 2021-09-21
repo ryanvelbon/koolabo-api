@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'followings', 'follower_id', 'followee_id');
     }
 
+    public function chats(): BelongsToMany
+    {
+        return $this->belongsToMany(Chat::class, 'chat_participants');
+    }
+
     public function images(): MorphMany
     {
         return $this->morphMany(Image::class, 'resource');

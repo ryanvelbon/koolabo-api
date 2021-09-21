@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FriendshipController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectLikeController;
 use App\Http\Controllers\ProjectInviteController;
@@ -50,6 +52,19 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // friendships
     Route::post('/friendships/users/{id}/follow', [FriendshipController::class, 'follow']);
     Route::post('/friendships/users/{id}/unfollow', [FriendshipController::class, 'unfollow']);
+
+    // chats
+    // Route::post('/chats', [PrivateChatController::class, 'store']);
+    Route::get('/chats', [ChatController::class, 'index']);
+    Route::get('/chats/{id}', [ChatController::class, 'show']);
+    Route::post('/chats', [ChatController::class, 'store']);
+    Route::patch('/chats/{id}', [ChatController::class, 'update']);
+    Route::delete('/chats/{id}', [ChatController::class, 'destroy']);
+
+    // chats (messages)
+    Route::post('/chats/{id}/messages', [MessageController::class, 'store']);
+    Route::patch('/chats/{chatId}/messages/{id}', [MessageController::class, 'update']);
+    Route::delete('/chats/{chatId}/messages/{id}', [MessageController::class, 'destroy']);
 
     // projects
     Route::post('/projects', [ProjectController::class, 'store']);

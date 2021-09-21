@@ -12,6 +12,8 @@ use App\Models\Project;
 use App\Models\ProjectInvite;
 use App\Models\JobVacancy;
 use App\Models\Meetup;
+use App\Models\Chat;
+use App\Models\Message;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -55,6 +57,30 @@ class AuthServiceProvider extends ServiceProvider
             return $user->id == $invite->sender_id || $user->id == $invite->recipient_id || $user->id == $invite->project->manager_id
                         ? Response::allow()
                         : Response::deny('You are not authorized to see this invititaion.');
+        });
+
+        Gate::define('isChatOwner', function (User $user, Chat $chat) {
+            return $user->id == $chat->owner_id
+                        ? Response::allow()
+                        : Response::deny('Only chat owner can perform this action.');
+        });
+
+        Gate::define('isChatAdmin', function (User $user, Chat $chat) {
+            return $chat->participants->where('role', ChatParticipant::ROLE_ADMIN)->find($user->id)
+                        ? Response::allow()
+                        : Response::deny('Only chat admin can perform this action.');
+        });
+
+        Gate::define('isChatParticipant', function (User $user, Chat $chat) {
+            return $chat->participants->find($user->id)
+                        ? Response::allow()
+                        : Response::deny('You must be a participant of this conversation to perform this action.');
+        });
+
+        Gate::define('isMessageAuthor', function (User $user, Message $message) {
+            return $user->id == $message->user_id
+                        ? Response::allow()
+                        : Response::deny('Only message author can perform this action.');
         });
     }
 }
