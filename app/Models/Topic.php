@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Relations\MBelongsToMany;
 
 class Topic extends Model
 {
+    protected $hidden = [
+        'pivot'
+    ];
     /*
      * Get all Users that are interested in this Topic.
      */

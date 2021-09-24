@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FriendshipController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ChatInviteController;
@@ -14,7 +15,6 @@ use App\Http\Controllers\ProjectInviteController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobVacancyController;
 use App\Http\Controllers\MeetupController;
-// use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserSkillController;
 use App\Http\Controllers\UserLanguageController;
 
@@ -32,6 +32,8 @@ use App\Http\Controllers\UserLanguageController;
 // Public routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/{id}', [UserController::class, 'show']);
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{id}', [ProjectController::class, 'show']);
 Route::get('/projects/{id}/likes', [ProjectLikeController::class, 'index']);
